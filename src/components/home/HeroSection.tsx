@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, ArrowRight, Phone, Video, ArrowLeft, Camera, Mic, Check, CheckCheck } from "lucide-react";
+import { MessageCircle, ArrowRight, Phone, Video, ArrowLeft, Camera, Mic, Check, CheckCheck, Shield, CheckCircle2, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { WHATSAPP_EMMA } from "@/lib/constants";
 
@@ -78,26 +78,53 @@ export function HeroSection() {
               transition={{ duration: 0.5 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy tracking-tight leading-tight"
             >
-              Your Home,{" "}
-              <span className="text-primary">Sorted.</span>
+              Get a Verified Tradesperson in 30 Minutes
             </motion.h1>
 
             <motion.p
               initial={{ y: 24, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="mt-6 text-lg text-grey-text leading-relaxed max-w-lg"
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="mt-3 text-lg md:text-xl text-navy/70 font-medium"
             >
-              Ireland&apos;s first AI-powered home services marketplace. Now
-              serving the Greater Dublin area. Tell Emma what you need on
-              WhatsApp — she&apos;ll find verified trades, get you quotes, and
-              handle the rest.
+              Bad trades can&apos;t hide here.
+            </motion.p>
+
+            {/* Trust Badges */}
+            <motion.div
+              initial={{ y: 24, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex flex-wrap justify-center md:justify-start gap-3 mt-6"
+            >
+              <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-primary-bg">
+                <Shield size={20} className="text-primary" />
+                <span className="text-sm font-medium text-navy">Identity Verified</span>
+              </div>
+              <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-primary-bg">
+                <CheckCircle2 size={20} className="text-primary" />
+                <span className="text-sm font-medium text-navy">Work Proven</span>
+              </div>
+              <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-primary-bg">
+                <ShieldCheck size={20} className="text-primary" />
+                <span className="text-sm font-medium text-navy">Protected by Snag Flow</span>
+              </div>
+            </motion.div>
+
+            {/* Free to match */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="mt-3 text-sm text-grey-text text-center md:text-left"
+            >
+              Free to get matched. No fees to post a job.
             </motion.p>
 
             <motion.div
               initial={{ y: 24, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
               className="mt-8 flex flex-wrap gap-4"
             >
               <Button

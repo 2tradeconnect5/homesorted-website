@@ -1,12 +1,14 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Search, SlidersHorizontal, X } from "lucide-react";
+import { Search, SlidersHorizontal, X, MessageCircle } from "lucide-react";
 import { mockTrades } from "@/data/mockTrades";
 import { serviceCategories } from "@/data/serviceCategories";
 import { TradeCard } from "@/components/directory/TradeCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { Button } from "@/components/ui/Button";
+import { WHATSAPP_EMMA } from "@/lib/constants";
 
 export function DirectoryContent() {
   const [search, setSearch] = useState("");
@@ -153,6 +155,20 @@ export function DirectoryContent() {
             <p className="text-sm text-grey-text/70">Try adjusting your search or filters</p>
           </div>
         )}
+
+        {/* Fallback CTA */}
+        <div className="mt-12 bg-primary-bg rounded-[var(--radius-card)] p-8 md:p-12 text-center">
+          <h3 className="text-xl md:text-2xl font-bold text-navy mb-3">
+            Can&apos;t find what you need?
+          </h3>
+          <p className="text-grey-text mb-6">
+            Chat with Emma and we&apos;ll find the right trade for you.
+          </p>
+          <Button variant="primary" size="lg" href={WHATSAPP_EMMA} external>
+            <MessageCircle size={20} />
+            Message Emma on WhatsApp
+          </Button>
+        </div>
       </div>
     </section>
   );

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { WHATSAPP_EMMA } from "@/lib/constants";
+import { trackCTAClick } from "@/lib/analytics";
 
 export function WhatsAppCTA() {
   const [visible, setVisible] = useState(true);
@@ -32,6 +33,7 @@ export function WhatsAppCTA() {
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0, opacity: 0 }}
           transition={{ type: "spring", stiffness: 260, damping: 20 }}
+          onClick={() => trackCTAClick("whatsapp")}
           className="fixed bottom-6 right-6 z-40 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-elevated hover:shadow-hover hover:scale-105 transition-all duration-200"
           aria-label="Chat with Emma on WhatsApp"
         >

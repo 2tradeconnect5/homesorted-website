@@ -14,6 +14,9 @@ import {
   Star,
   CheckCircle,
   AlertTriangle,
+  Calendar,
+  Bell,
+  Headphones,
 } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -180,6 +183,46 @@ export function HomeownersContent() {
               </Card>
             </ScrollReveal>
           </div>
+        </div>
+      </section>
+
+      {/* HomeInsight Pro */}
+      <section className="bg-white py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <SectionHeading
+              title="Upgrade to HomeInsight Pro for \u20ac4.99/month"
+              subtitle="Get proactive maintenance insights and seasonal reminders"
+            />
+          </ScrollReveal>
+          <div className="grid sm:grid-cols-2 gap-6 mb-10">
+            {[
+              { icon: Calendar, title: "Seasonal service reminders", description: "Boiler servicing in autumn, gutter cleaning in spring \u2014 Emma reminds you when seasonal maintenance is due." },
+              { icon: AlertTriangle, title: "Proactive maintenance alerts", description: "Based on service history and best practices, Emma suggests preventive maintenance before problems start." },
+              { icon: Bell, title: "Service anniversary reminders", description: "Automatically remembers the anniversary of your last service for every system in your home." },
+              { icon: Headphones, title: "Priority support from Emma", description: "Get faster responses and dedicated attention for HomeInsight Pro members." },
+            ].map((feature, i) => (
+              <ScrollReveal key={feature.title} delay={i * 0.1}>
+                <Card className="p-6 h-full">
+                  <div className="w-10 h-10 rounded-xl bg-primary-bg flex items-center justify-center mb-3">
+                    <feature.icon size={20} className="text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-navy mb-2">{feature.title}</h3>
+                  <p className="text-sm text-grey-text leading-relaxed">{feature.description}</p>
+                </Card>
+              </ScrollReveal>
+            ))}
+          </div>
+          <ScrollReveal delay={0.3}>
+            <div className="text-center">
+              <p className="text-2xl font-bold text-navy mb-2">&euro;4.99/month</p>
+              <p className="text-sm text-grey-text mb-6">First month free. Cancel anytime. No commitment.</p>
+              <Button variant="primary" size="lg" href={WHATSAPP_EMMA} external>
+                <MessageCircle size={20} />
+                Start free, upgrade anytime
+              </Button>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 

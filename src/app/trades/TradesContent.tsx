@@ -11,8 +11,13 @@ import {
   ChevronDown,
   ArrowRight,
   Users,
-  Star,
   Receipt,
+  ShieldCheck,
+  Zap,
+  Eye,
+  FileText,
+  TrendingUp,
+  AlertCircle,
 } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
@@ -28,26 +33,35 @@ import { WHATSAPP_CASEY, TRADE_APP_URL } from "@/lib/constants";
 const benefits = [
   { icon: Briefcase, title: "Real Jobs, Real Budgets", description: "No bidding wars. Homeowners post jobs, you get matched based on your skills, location, and availability." },
   { icon: Bot, title: "Casey, Your AI Partner", description: "Casey sends you job offers, reminds you about deadlines, tracks your earnings, and helps you write quotes." },
-  { icon: Smartphone, title: "Trade Companion App", description: "Manage everything in one place — jobs, quotes, invoices, reviews, and your business analytics." },
+  { icon: Smartphone, title: "Trade Companion App", description: "Manage everything in one place \u2014 jobs, quotes, invoices, reviews, and your business analytics." },
   { icon: Globe, title: "Public Trade Profile", description: "Your own page in the HomeSorted directory. Homeowners can find you, read your reviews, and request quotes." },
   { icon: Award, title: "Proof of Work Badges", description: "Build your reputation with verified past jobs. Earn your Verified badge and stand out from the crowd." },
   { icon: Clock, title: "Flexible Scheduling", description: "Set your working hours, holiday mode, service radius, and capacity. Work on your terms." },
 ];
 
-const caseySteps = [
-  { step: 1, icon: MessageCircle, title: "Casey Sends You an Offer", description: "New job in your area matching your skills? Casey sends it straight to your WhatsApp with all the details." },
-  { step: 2, icon: Users, title: "Accept and Arrange", description: "Accept the job, arrange a site visit if needed, and submit your quote — all through Casey or the Trade App." },
-  { step: 3, icon: Star, title: "Win the Job", description: "The homeowner reviews up to 3 quotes and chooses. You're introduced directly via WhatsApp to get started." },
-  { step: 4, icon: Receipt, title: "Get Paid", description: "Complete the work, upload photos, and generate a professional invoice. The homeowner leaves a Reflection Note and can save you to their Home Team." },
+const tradeJourney = [
+  { step: 1, icon: ShieldCheck, title: "Casey verifies your identity and work", description: "KYT process (identity check) + POW (Proof of Work with 2 verified jobs minimum). Build your verified profile." },
+  { step: 2, icon: Zap, title: "Jobs come to you", description: "Demand signals for your area, real-time job offers, response time incentives (30 min window)." },
+  { step: 3, icon: Eye, title: "See the job before you price it", description: "Accept-then-Quote flow. You see full job details, photos, and requirements. Decide to accept. THEN provide your quote." },
+  { step: 4, icon: FileText, title: "Built-in invoicing", description: "Generate, send, and track invoices through Casey. No more chasing payments. VAT calculations handled." },
+  { step: 5, icon: TrendingUp, title: "Your reputation compounds", description: "Every completed job builds your Proof of Work. More verified jobs = more trust = more offers from homeowners." },
+  { step: 6, icon: AlertCircle, title: "Emergency premium rates", description: "Available for after-hours emergencies? Earn +40% on emergency callouts. Flexible, optional." },
+];
+
+const comparison = [
+  { problem: "Lead Waste", oldWay: "Pay for leads that go nowhere", homeSortedWay: "Only respond to real, qualified jobs" },
+  { problem: "Invoice Chasing", oldWay: "Chase invoices for weeks", homeSortedWay: "Casey handles invoicing and follow-ups" },
+  { problem: "Unverified Competition", oldWay: "Compete with unverified cowboys", homeSortedWay: "Every trade is identity-checked and work-proven" },
+  { problem: "Market Blindness", oldWay: "No idea what\u2019s happening in your area", homeSortedWay: "Live demand signals for your trade and postcode" },
 ];
 
 const faqs = [
   { q: "How do I sign up as a trade?", a: "Three ways: message Casey on WhatsApp, download the Trade Companion App, or fill in the form on this page. Casey will walk you through the Know Your Trade verification process." },
-  { q: "What does it cost?", a: "It's free to join, create your profile, and appear in the directory. You only pay when you win work — a small platform fee on completed jobs. No subscription required to get started." },
+  { q: "What does it cost?", a: "It\u2019s free to join, create your profile, and appear in the directory. You only pay when you win work \u2014 a small platform fee on completed jobs. No subscription required to get started." },
   { q: "What is Know Your Trade (KYT)?", a: "KYT is our verification process. It includes identity verification via selfie, insurance documentation, and relevant regulatory credentials (RGI, Safe Electric, SEAI). Verified trades earn a trust badge on their profile." },
-  { q: "What types of trades does HomeSorted support?", a: "Plumbers, electricians, painters, carpenters, tilers, landscapers, general builders, locksmiths, roofers, heating engineers, and more. If you're a skilled tradesperson in Ireland, there's a place for you." },
+  { q: "What types of trades does HomeSorted support?", a: "Plumbers, electricians, painters, carpenters, tilers, landscapers, general builders, locksmiths, roofers, heating engineers, and more. If you\u2019re a skilled tradesperson in Ireland, there\u2019s a place for you." },
   { q: "How does job matching work?", a: "When a homeowner posts a job, Emma identifies the category and location. Casey then offers the job to up to 3 matching trades based on availability, proximity, and verified status. First to accept, first to quote." },
-  { q: "Can I manage my own clients too?", a: "Yes! The Trade Companion App includes an 'Own Clients' feature where you can track jobs for your existing customers alongside HomeSorted jobs." },
+  { q: "Can I manage my own clients too?", a: "Yes! The Trade Companion App includes an \u2018Own Clients\u2019 feature where you can track jobs for your existing customers alongside HomeSorted jobs." },
 ];
 
 export function TradesContent() {
@@ -96,17 +110,14 @@ export function TradesContent() {
         </div>
       </section>
 
-      {/* Zero Commission */}
+      {/* Value proposition */}
       <section className="bg-navy py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-            Zero Commission. You Keep Every Cent You Earn.
+            Real Jobs. Fair Pricing. No Lead Fees.
           </h2>
           <p className="text-white/70 mb-2">
-            No hidden fees. No cut per job. Just a simple monthly subscription starting at €24.99.
-          </p>
-          <p className="text-sm text-white/50">
-            Other platforms take 10–20% of every job. We take nothing.
+            You only pay a simple monthly subscription starting at &euro;24.99. No per-job cuts.
           </p>
         </div>
       </section>
@@ -133,31 +144,55 @@ export function TradesContent() {
         </div>
       </section>
 
-      {/* How Casey Works */}
+      {/* 6-Step Trade Journey */}
       <section className="bg-white py-20">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <div className="flex items-center justify-center gap-3 mb-2">
-              <Image
-                src="/images/personas/casey-closeup.jpg"
-                alt="Casey"
-                width={40}
-                height={40}
-                className="w-10 h-10 rounded-full object-cover"
-              />
-              <SectionHeading title="How Casey Works for You" subtitle="From job offer to payment — Casey handles the admin" />
-            </div>
+            <SectionHeading title="Your Journey with HomeSorted" subtitle="From verification to growing your business — here\u2019s the path" />
           </ScrollReveal>
           <div className="space-y-8">
-            {caseySteps.map((step, i) => (
-              <ScrollReveal key={step.step} delay={i * 0.1}>
+            {tradeJourney.map((step, i) => (
+              <ScrollReveal key={step.step} delay={i * 0.08}>
                 <div className="flex gap-6 items-start">
-                  <div className="shrink-0 w-12 h-12 rounded-xl bg-navy flex items-center justify-center text-white font-bold">
+                  <div className="shrink-0 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold">
                     {step.step}
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-navy mb-1">{step.title}</h3>
+                    <div className="flex items-center gap-2 mb-1">
+                      <step.icon size={20} className="text-primary shrink-0" />
+                      <h3 className="text-lg font-semibold text-navy">{step.title}</h3>
+                    </div>
                     <p className="text-grey-text leading-relaxed">{step.description}</p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Old Way vs HomeSorted Way */}
+      <section className="bg-page-bg py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <SectionHeading title="Old Way vs HomeSorted Way" />
+          </ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {comparison.map((item, i) => (
+              <ScrollReveal key={item.problem} delay={i * 0.1}>
+                <div className="bg-white rounded-[var(--radius-card)] border border-border overflow-hidden">
+                  <div className="p-4 bg-gray-50 border-b border-border">
+                    <h4 className="font-semibold text-navy text-sm">{item.problem}</h4>
+                  </div>
+                  <div className="p-4 space-y-3">
+                    <div className="flex items-start gap-2">
+                      <span className="text-gray-400 text-xs font-medium mt-0.5 shrink-0 w-16">Old Way</span>
+                      <p className="text-sm text-gray-400">{item.oldWay}</p>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="text-primary text-xs font-medium mt-0.5 shrink-0 w-16">HomeSorted</span>
+                      <p className="text-sm text-navy font-medium">{item.homeSortedWay}</p>
+                    </div>
                   </div>
                 </div>
               </ScrollReveal>
@@ -230,28 +265,22 @@ export function TradesContent() {
             <div className="flex justify-center mb-4">
               <Award size={36} className="text-navy" />
             </div>
-            <h2 className="text-3xl font-bold text-navy mb-4">
-              Become a Founding Trade
+            <h2 className="text-2xl md:text-3xl font-bold text-navy mb-4">
+              First 50 founding trades get 6 months free on the Professional plan
             </h2>
-            <p className="text-grey-text leading-relaxed mb-8">
-              We&apos;re looking for 40 founding tradespeople to launch HomeSorted in Greater Dublin. Founding trades get exclusive benefits that won&apos;t be available later.
-            </p>
             <ul className="text-left max-w-md mx-auto space-y-3 mb-8">
               {[
-                "Lifetime Starter plan — free forever",
-                "Direct input on features — help shape the platform",
                 "Founding Trade badge on your profile",
-                "Priority support from the HomeSorted team",
-                "First access to new areas as we expand",
+                "Limited to 50 trades in Greater Dublin. Once filled, this offer closes permanently.",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 text-grey-text">
-                  <Star size={18} className="text-primary mt-0.5 shrink-0" />
+                  <Award size={18} className="text-primary mt-0.5 shrink-0" />
                   {item}
                 </li>
               ))}
             </ul>
-            <p className="text-sm font-semibold text-navy mb-6">
-              Limited to 40 founding trades. 18 spots remaining.
+            <p className="text-base font-bold text-primary mb-6">
+              32 of 50 spots remaining
             </p>
             <Button variant="primary" size="lg" href={WHATSAPP_CASEY} external>
               <MessageCircle size={20} />

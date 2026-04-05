@@ -39,7 +39,7 @@ export function Header() {
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden md:flex items-center gap-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -52,7 +52,7 @@ export function Header() {
             </nav>
 
             {/* Desktop CTAs */}
-            <div className="hidden lg:flex items-center gap-3">
+            <div className="hidden md:flex items-center gap-3">
               {/* Login dropdown */}
               <div
                 className="relative"
@@ -99,7 +99,7 @@ export function Header() {
             {/* Mobile Hamburger */}
             <button
               onClick={() => setMobileOpen(true)}
-              className="lg:hidden p-2 text-navy hover:bg-page-bg rounded-lg transition-colors"
+              className="md:hidden p-2 text-navy hover:bg-page-bg rounded-lg transition-colors"
               aria-label="Open menu"
             >
               <Menu size={24} />

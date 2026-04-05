@@ -93,6 +93,84 @@ export function AboutContent() {
         </div>
       </section>
 
+      {/* Why HomeSorted Exists */}
+      <section className="py-16 md:py-20 bg-page-bg">
+        <div className="container mx-auto px-4">
+          <ScrollReveal>
+            <SectionHeading title="Why HomeSorted Exists" align="left" />
+          </ScrollReveal>
+          <div className="max-w-3xl">
+            <ScrollReveal delay={0.1}>
+              <p className="text-grey-text leading-relaxed mb-4">
+                Finding a trustworthy tradesperson in Ireland shouldn&apos;t be this hard. Too many homeowners get ghosted, overcharged, or left with bad work. HomeSorted connects homeowners with verified trades through AI matching. Simple, fair, transparent.
+              </p>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* The Flywheel */}
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-4">
+          <ScrollReveal>
+            <SectionHeading
+              title="The HomeSorted Flywheel"
+              subtitle="A three-sided marketplace that gets better with every job"
+            />
+          </ScrollReveal>
+          <div className="max-w-4xl mx-auto">
+            <ScrollReveal delay={0.1}>
+              <div className="bg-primary-bg rounded-[var(--radius-card)] p-8 text-center">
+                <p className="text-navy leading-relaxed">
+                  Jobs + Demand &rarr; Verified work + data &rarr; Growth &rarr; Better matching &rarr; Happier homeowners &rarr; cycle repeats
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Three-Sided Marketplace */}
+      <section className="py-16 md:py-20 bg-page-bg">
+        <div className="container mx-auto px-4">
+          <ScrollReveal>
+            <SectionHeading
+              title="Three-Sided Marketplace"
+              subtitle="Everyone wins when the system works together"
+            />
+          </ScrollReveal>
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <ScrollReveal delay={0.1}>
+              <Card hover className="p-6 text-center h-full">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Heart className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-bold text-navy mb-2">Homeowners</h3>
+                <p className="text-grey-text text-sm">Find verified trades via Emma. Get matched, quoted, and protected &mdash; all through WhatsApp.</p>
+              </Card>
+            </ScrollReveal>
+            <ScrollReveal delay={0.2}>
+              <Card hover className="p-6 text-center h-full">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Zap className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-bold text-navy mb-2">Trades</h3>
+                <p className="text-grey-text text-sm">Accept jobs, build reputation with Proof of Work, and grow your business with Casey.</p>
+              </Card>
+            </ScrollReveal>
+            <ScrollReveal delay={0.3}>
+              <Card hover className="p-6 text-center h-full">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <MapPin className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-bold text-navy mb-2">Partners</h3>
+                <p className="text-grey-text text-sm">Onboard residents, manage snags, and coordinate trades from one dashboard.</p>
+              </Card>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
       {/* Meet Emma & Casey */}
       <section className="py-16 md:py-20 bg-page-bg">
         <div className="container mx-auto px-4">

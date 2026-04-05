@@ -74,10 +74,12 @@ const features = [
 ];
 
 const partnerSteps = [
-  { step: 1, title: "Onboard Your Organisation", description: "Set up your organisation profile, team members, and preferred terminology." },
-  { step: 2, title: "Add Your Properties", description: "Import via CSV or add individually. Group by development, portfolio, or estate." },
-  { step: 3, title: "Manage Snags & Trades", description: "Triage incoming snags, assign trades, review quotes, and track progress." },
-  { step: 4, title: "Track Everything", description: "Monitor defect periods, invoice status, trade performance, and resolution rates." },
+  { step: 1, title: "Onboard your organisation", description: "Set up your organisation profile, team members, and preferred terminology." },
+  { step: 2, title: "Import your properties", description: "Bulk CSV import or add individually. Group by development, portfolio, or estate." },
+  { step: 3, title: "Activate residents with QR codes", description: "Generate QR codes at key handover. Residents scan to connect with HomeSorted instantly." },
+  { step: 4, title: "Triage incoming snags", description: "Unassigned snags sorted by severity. Assign trades with On Price or Quote Required modes." },
+  { step: 5, title: "Coordinate verified trades", description: "All trades are KYT-verified and work-proven. Track progress, quotes, and invoices in one view." },
+  { step: 6, title: "Report and comply", description: "Snag resolution rates, defect period tracking, trade performance, and compliance reporting." },
 ];
 
 export function PartnersContent() {
