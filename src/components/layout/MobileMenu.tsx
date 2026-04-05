@@ -120,7 +120,7 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
 
             <div className="p-4 border-t border-border space-y-3">
               <Button
-                variant="whatsapp"
+                variant="primary"
                 size="lg"
                 className="w-full"
                 href={WHATSAPP_EMMA}

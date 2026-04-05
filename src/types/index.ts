@@ -6,7 +6,6 @@ export interface Trade {
   subcategories: string[];
   location: string;
   serviceAreas: string[];
-  rating: number;
   reviewCount: number;
   jobsCompleted: number;
   badges: string[];
@@ -22,7 +21,6 @@ export interface Review {
   id: string;
   author: string;
   location: string;
-  rating: number;
   date: string;
   comment: string;
 }
@@ -33,7 +31,6 @@ export interface Testimonial {
   name: string;
   location: string;
   role: "homeowner" | "trade" | "partner";
-  rating: number;
 }
 
 export interface BlogPost {

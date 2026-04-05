@@ -13,12 +13,10 @@ import {
   Shield,
   Award,
   Zap,
-  Star as StarIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
-import { StarRating } from "@/components/ui/StarRating";
 import { TradeCard } from "@/components/directory/TradeCard";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { formatDate } from "@/lib/utils";
@@ -42,7 +40,7 @@ const badgeIcons: Record<string, typeof Shield> = {
   Verified: Shield,
   "Top Rated": Award,
   "Quick Responder": Zap,
-  "HomeSorted Pro": StarIcon,
+  "HomeSorted Pro": Award,
 };
 
 interface TradeProfileContentProps {
@@ -92,15 +90,12 @@ export function TradeProfileContent({ trade, relatedTrades }: TradeProfileConten
                 {/* Stats */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-6 border-t border-border">
                   <div className="text-center">
-                    <div className="flex items-center justify-center gap-1">
-                      <StarRating rating={Math.round(trade.rating)} size={16} />
-                    </div>
-                    <p className="text-xl font-bold text-navy mt-1">{trade.rating}</p>
-                    <p className="text-xs text-grey-text">{trade.reviewCount} reviews</p>
-                  </div>
-                  <div className="text-center">
                     <p className="text-xl font-bold text-navy">{trade.jobsCompleted}</p>
                     <p className="text-xs text-grey-text">Jobs Completed</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-xl font-bold text-navy">{trade.reviewCount}</p>
+                    <p className="text-xs text-grey-text">Reviews</p>
                   </div>
                   <div className="text-center">
                     <p className="text-xl font-bold text-navy">{trade.yearsExperience}</p>
@@ -174,7 +169,6 @@ export function TradeProfileContent({ trade, relatedTrades }: TradeProfileConten
                         </div>
                         <p className="text-xs text-grey-text">{formatDate(review.date)}</p>
                       </div>
-                      <StarRating rating={review.rating} size={12} className="mb-2" />
                       <p className="text-sm text-grey-text leading-relaxed">{review.comment}</p>
                     </div>
                   ))}
@@ -189,7 +183,7 @@ export function TradeProfileContent({ trade, relatedTrades }: TradeProfileConten
               <ScrollReveal direction="right">
                 <Card className="p-6 space-y-4">
                   <Button
-                    variant="whatsapp"
+                    variant="primary"
                     size="lg"
                     className="w-full"
                     href={WHATSAPP_EMMA}

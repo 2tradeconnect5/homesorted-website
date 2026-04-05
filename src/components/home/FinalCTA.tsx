@@ -35,7 +35,7 @@ export function FinalCTA({
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button
-              variant="whatsapp"
+              variant="primary"
               size="lg"
               href={primaryHref}
               external={primaryExternal}

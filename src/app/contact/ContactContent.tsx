@@ -205,7 +205,7 @@ export function ContactContent() {
                     Prefer WhatsApp? Chat with Casey directly.
                   </p>
                   <Button
-                    variant="whatsapp"
+                    variant="primary"
                     size="sm"
                     href={WHATSAPP_CASEY}
                     external
@@ -223,7 +223,7 @@ export function ContactContent() {
                     Need a trade right now? Chat with Emma.
                   </p>
                   <Button
-                    variant="whatsapp"
+                    variant="primary"
                     size="sm"
                     href={WHATSAPP_EMMA}
                     external

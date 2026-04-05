@@ -124,7 +124,7 @@ Be wary of quotes that are significantly lower than others. There's usually a re
 
 ## 4. Look for Reviews and Past Work
 
-Online reviews are useful but take them with a pinch of salt. Look for patterns rather than individual reviews. A trade with 50 reviews averaging 4.7 stars is more reliable than one with 3 perfect reviews.
+Online reviews are useful but take them with a pinch of salt. Look for patterns rather than individual reviews. A trade with 50 verified past jobs is more reliable than one with 3 glowing testimonials.
 
 Even better: ask to see examples of past work. Verified portfolios — where the work has been confirmed by the homeowner — are worth more than any number of testimonials.
 

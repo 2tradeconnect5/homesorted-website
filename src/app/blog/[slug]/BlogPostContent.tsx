@@ -103,7 +103,7 @@ export function BlogPostContent({ post, relatedPosts }: BlogPostContentProps) {
               Ask Emma on WhatsApp — she&apos;ll find the right trade for you.
             </p>
             <Button
-              variant="whatsapp"
+              variant="primary"
               size="lg"
               href={WHATSAPP_EMMA}
               external

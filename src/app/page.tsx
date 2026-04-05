@@ -17,6 +17,17 @@ export default function HomePage() {
       <TrustBar />
       <EmmaIntro />
       <TestimonialsCarousel />
+      {/* Snag Flow trust callout */}
+      <section className="bg-white py-12">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-grey-text text-base leading-relaxed">
+            Not happy with the work? HomeSorted has a 3-step resolution process — from minor snags to full escalation.{" "}
+            <a href="/homeowners#protection" className="text-primary font-medium hover:underline">
+              Learn more &rarr;
+            </a>
+          </p>
+        </div>
+      </section>
       <FinalCTA />
     </>
   );

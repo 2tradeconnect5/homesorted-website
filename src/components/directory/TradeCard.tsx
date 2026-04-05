@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { MapPin, Clock, Briefcase } from "lucide-react";
+import { MapPin, Clock, Briefcase, Shield } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
-import { StarRating } from "@/components/ui/StarRating";
 import { Trade } from "@/types";
 
 const categoryColors: Record<string, string> = {
@@ -59,10 +58,10 @@ export function TradeCard({ trade }: TradeCardProps) {
           ))}
         </div>
 
-        <div className="mt-4 flex items-center gap-2">
-          <StarRating rating={Math.round(trade.rating)} size={14} />
-          <span className="text-sm font-medium text-navy">{trade.rating}</span>
-          <span className="text-xs text-grey-text">({trade.reviewCount} reviews)</span>
+        <div className="mt-4 flex items-center gap-2 text-sm">
+          <Shield size={14} className="text-primary" />
+          <span className="font-medium text-navy">Verified</span>
+          <span className="text-grey-text">&middot; {trade.jobsCompleted} jobs completed</span>
         </div>
 
         <div className="mt-4 space-y-2 text-xs text-grey-text">

@@ -11,7 +11,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 export function DirectoryContent() {
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [sortBy, setSortBy] = useState<"rating" | "jobs" | "response">("rating");
+  const [sortBy, setSortBy] = useState<"jobs" | "response">("jobs");
   const [showFilters, setShowFilters] = useState(false);
 
   const categories = useMemo(() => {
@@ -38,9 +38,6 @@ export function DirectoryContent() {
     }
 
     switch (sortBy) {
-      case "rating":
-        result.sort((a, b) => b.rating - a.rating);
-        break;
       case "jobs":
         result.sort((a, b) => b.jobsCompleted - a.jobsCompleted);
         break;
@@ -124,7 +121,6 @@ export function DirectoryContent() {
               onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
               className="px-3 py-1.5 rounded-[var(--radius-input)] border border-border bg-white text-xs font-medium text-navy cursor-pointer"
             >
-              <option value="rating">Sort: Rating</option>
               <option value="jobs">Sort: Jobs Completed</option>
               <option value="response">Sort: Response Time</option>
             </select>

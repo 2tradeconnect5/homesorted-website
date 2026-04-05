@@ -89,7 +89,7 @@ export function Footer() {
               marketplace. Serving Greater Dublin. Built on WhatsApp.
             </p>
             <Button
-              variant="whatsapp"
+              variant="primary"
               size="sm"
               href={WHATSAPP_EMMA}
               external

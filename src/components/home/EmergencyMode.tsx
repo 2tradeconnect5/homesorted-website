@@ -70,7 +70,7 @@ export function EmergencyMode() {
 
         <ScrollReveal delay={0.4}>
           <div className="text-center">
-            <Button variant="whatsapp" size="lg" href={WHATSAPP_EMMA} external>
+            <Button variant="primary" size="lg" href={WHATSAPP_EMMA} external>
               <MessageCircle size={20} />
               Chat with Emma
             </Button>

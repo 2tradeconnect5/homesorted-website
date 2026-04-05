@@ -118,7 +118,7 @@ export function EmmaIntro() {
               </div>
 
               <Button
-                variant="whatsapp"
+                variant="primary"
                 size="lg"
                 href={WHATSAPP_EMMA}
                 external

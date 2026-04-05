@@ -193,7 +193,7 @@ export function HowWeVerifyContent() {
               tradespeople in your area.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button variant="whatsapp" size="lg" href={WHATSAPP_EMMA} external>
+              <Button variant="primary" size="lg" href={WHATSAPP_EMMA} external>
                 <MessageCircle size={20} />
                 Chat with Emma
               </Button>

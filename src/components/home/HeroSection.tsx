@@ -101,7 +101,7 @@ export function HeroSection() {
               className="mt-8 flex flex-wrap gap-4"
             >
               <Button
-                variant="whatsapp"
+                variant="primary"
                 size="lg"
                 href={WHATSAPP_EMMA}
                 external

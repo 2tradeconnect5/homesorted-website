@@ -4,7 +4,6 @@ import { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { mockTestimonials } from "@/data/mockTestimonials";
-import { StarRating } from "@/components/ui/StarRating";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
@@ -71,10 +70,6 @@ export function TestimonialsCarousel() {
               <p className="text-lg md:text-xl text-navy leading-relaxed mb-6 italic">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
-              <StarRating
-                rating={testimonial.rating}
-                className="justify-center mb-4"
-              />
               {/* Avatar + name */}
               <div className="flex items-center justify-center gap-3">
                 <div

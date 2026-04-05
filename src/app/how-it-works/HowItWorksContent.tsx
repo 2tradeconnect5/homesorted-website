@@ -5,7 +5,6 @@ import { WHATSAPP_EMMA } from "@/lib/constants";
 import {
   MessageSquare,
   Search,
-  Star,
   CheckCircle,
   Briefcase,
   FileText,
@@ -35,14 +34,14 @@ const flows: Record<string, { icon: typeof Home; title: string; description: str
   homeowners: [
     { icon: MessageSquare, title: "Message Emma on WhatsApp", description: "Describe your job in plain English. Send a photo or voice note if it helps — Emma understands all formats." },
     { icon: Search, title: "Emma Finds Verified Trades", description: "Emma identifies the right category, searches verified trades near you, and invites up to 3 to quote. This usually takes minutes." },
-    { icon: Star, title: "Review and Choose", description: "Compare quotes with clear pricing and timelines. Ask follow-up questions through Emma. Choose the trade that fits." },
-    { icon: CheckCircle, title: "Job Done", description: "Your trade completes the work. Confirm it's all good, leave a review, and save them to your Home Team for next time." },
+    { icon: FileText, title: "Review and Choose", description: "Compare quotes with clear pricing and timelines. Ask follow-up questions through Emma. Choose the trade that fits." },
+    { icon: CheckCircle, title: "Job Done", description: "Your trade completes the work. Confirm it's all good, leave a Reflection Note, and save them to your Home Team for next time." },
   ],
   trades: [
     { icon: Briefcase, title: "Receive Job Offers via Casey", description: "Casey sends you matching jobs on WhatsApp with all the details — category, location, budget. Accept or decline in one tap." },
     { icon: FileText, title: "Arrange a View and Quote", description: "Book a site visit if needed, then submit your quote with amount, timeline, and description. Use stored quote templates to save time." },
     { icon: Award, title: "Win the Job", description: "The homeowner selects from up to 3 quotes. You're introduced directly via WhatsApp to coordinate the work." },
-    { icon: Receipt, title: "Complete and Get Paid", description: "Mark the job complete, upload photos, add warranty details, and generate a professional invoice. The homeowner reviews your work." },
+    { icon: Receipt, title: "Complete and Get Paid", description: "Mark the job complete, upload photos, add warranty details, and generate a professional invoice. The homeowner leaves a Reflection Note." },
   ],
   partners: [
     { icon: Upload, title: "Onboard Properties", description: "Import properties via CSV or add them individually. Group by development, portfolio, or estate. Generate QR codes for each unit." },
@@ -110,7 +109,7 @@ export function HowItWorksContent() {
           <div className="mt-12 text-center">
             <ScrollReveal>
               {activeTab === "homeowners" && (
-                <Button variant="whatsapp" size="lg" href={WHATSAPP_EMMA} external>
+                <Button variant="primary" size="lg" href={WHATSAPP_EMMA} external>
                   <MessageSquare size={20} />
                   Chat with Emma
                 </Button>

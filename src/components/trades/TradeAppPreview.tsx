@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 
 const jobs = [
-  { title: "Kitchen Tap Repair", client: "Aoife B.", area: "Lucan", status: "QUOTED", statusColor: "bg-amber-100 text-amber-700" },
-  { title: "Full House Repaint", client: "Ciarán K.", area: "Maynooth", status: "ARRANGED", statusColor: "bg-blue-100 text-blue-700" },
-  { title: "Bathroom Refit", client: "Sinéad O.", area: "Blackrock", status: "IN_PROGRESS", statusColor: "bg-green-100 text-green-700" },
+  { ref: "HS-2026-0401", desc: "Kitchen Tap Repair", area: "D12, Crumlin", status: "OFFERED", statusColor: "bg-[#EEF8E0] text-[#5A8A2A]", emoji: "🔧", competing: 3 },
+  { ref: "HS-2026-0398", desc: "Full House Repaint", area: "D06, Ranelagh", status: "QUOTED", statusColor: "bg-purple-100 text-purple-700", emoji: "🎨", competing: 2 },
+  { ref: "HS-2026-0392", desc: "Bathroom Refit", area: "D18, Blackrock", status: "IN_PROGRESS", statusColor: "bg-orange-100 text-orange-700", emoji: "🔧", competing: 0 },
 ];
 
 export function TradeAppPreview() {
@@ -22,7 +22,7 @@ export function TradeAppPreview() {
         {/* Notch */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-gray-900 rounded-b-2xl z-10" />
 
-        <div className="bg-white rounded-[2rem] overflow-hidden">
+        <div className="bg-[#F3F4F6] rounded-[2rem] overflow-hidden">
           {/* App header */}
           <div className="bg-navy px-4 py-3 pt-8">
             <div className="flex items-center justify-between">
@@ -40,7 +40,7 @@ export function TradeAppPreview() {
           </div>
 
           {/* Nav tabs */}
-          <div className="flex border-b border-gray-100">
+          <div className="flex border-b border-gray-200 bg-white">
             {["My Jobs", "Offers", "Earnings"].map((tab, i) => (
               <div
                 key={tab}
@@ -59,23 +59,26 @@ export function TradeAppPreview() {
           <div className="p-3 space-y-2.5 min-h-[280px]">
             {jobs.map((job, i) => (
               <motion.div
-                key={job.title}
+                key={job.ref}
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 + i * 0.15 }}
-                className="bg-gray-50 rounded-xl p-3 border border-gray-100"
+                className="bg-white rounded-xl p-3 border border-gray-100 shadow-sm"
               >
-                <div className="flex items-start justify-between mb-1.5">
-                  <h4 className="text-sm font-semibold text-navy">{job.title}</h4>
-                  <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${job.statusColor}`}>
-                    {job.status}
-                  </span>
+                <div className="flex items-center justify-between mb-1.5">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-sm">{job.emoji}</span>
+                    <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${job.statusColor}`}>
+                      {job.status}
+                    </span>
+                  </div>
+                  <span className="text-[9px] text-gray-400">{job.ref}</span>
                 </div>
+                <h4 className="text-sm font-semibold text-[#1F2937] mb-1">{job.desc}</h4>
                 <div className="flex items-center gap-3 text-[11px] text-gray-500">
-                  <span>{job.client}</span>
-                  <span className="text-gray-300">|</span>
-                  <span>{job.area}</span>
+                  <span className="flex items-center gap-1">📍 {job.area}</span>
+                  {job.competing > 0 && <span>{job.competing} trades</span>}
                 </div>
               </motion.div>
             ))}
@@ -83,16 +86,25 @@ export function TradeAppPreview() {
             {/* Stats mini row */}
             <div className="grid grid-cols-3 gap-2 mt-3">
               {[
-                { label: "This Month", value: "\u20AC2,840" },
+                { label: "This Month", value: "€2,840" },
                 { label: "Jobs Won", value: "12" },
-                { label: "Rating", value: "4.9\u2605" },
+                { label: "Status", value: "POW ✓" },
               ].map((stat) => (
-                <div key={stat.label} className="bg-primary/5 rounded-lg p-2 text-center">
-                  <p className="text-xs font-bold text-navy">{stat.value}</p>
+                <div key={stat.label} className="bg-white rounded-lg p-2 text-center border border-gray-100">
+                  <p className="text-xs font-bold text-[#1F2937]">{stat.value}</p>
                   <p className="text-[9px] text-gray-500">{stat.label}</p>
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Bottom nav */}
+          <div className="bg-white border-t border-gray-200 px-4 py-2 flex justify-around">
+            {["🏠", "💼", "💬", "👤"].map((icon, i) => (
+              <div key={i} className={`text-base ${i === 1 ? "opacity-100" : "opacity-40"}`}>
+                {icon}
+              </div>
+            ))}
           </div>
         </div>
       </div>

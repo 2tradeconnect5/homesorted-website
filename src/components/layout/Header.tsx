@@ -86,7 +86,7 @@ export function Header() {
                 )}
               </div>
               <Button
-                variant="whatsapp"
+                variant="primary"
                 size="sm"
                 href={WHATSAPP_EMMA}
                 external

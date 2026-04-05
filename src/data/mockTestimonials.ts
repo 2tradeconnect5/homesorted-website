@@ -7,7 +7,6 @@ export const mockTestimonials: Testimonial[] = [
     name: "Aoife Byrne",
     location: "Lucan, Dublin",
     role: "homeowner",
-    rating: 5,
   },
   {
     id: "t2",
@@ -15,7 +14,6 @@ export const mockTestimonials: Testimonial[] = [
     name: "Ciarán Kelly",
     location: "Maynooth, Kildare",
     role: "homeowner",
-    rating: 5,
   },
   {
     id: "t3",
@@ -23,7 +21,6 @@ export const mockTestimonials: Testimonial[] = [
     name: "Sinéad O'Brien",
     location: "Blackrock, Dublin",
     role: "homeowner",
-    rating: 5,
   },
   {
     id: "t4",
@@ -31,15 +28,13 @@ export const mockTestimonials: Testimonial[] = [
     name: "Dave McCarthy",
     location: "Dublin Plumbing & Heating",
     role: "trade",
-    rating: 5,
   },
   {
     id: "t5",
-    quote: "The Trade Companion App keeps everything in one place — quotes, invoices, reviews. Casey even reminds me about deadlines. It's like having a business partner in my pocket.",
+    quote: "The Trade Companion App keeps everything in one place — quotes, invoices, job history. Casey even reminds me about deadlines. It's like having a business partner in my pocket.",
     name: "John Fitzgerald",
     location: "Fitzgerald Electrical, Dublin",
     role: "trade",
-    rating: 5,
   },
   {
     id: "t6",
@@ -47,6 +42,5 @@ export const mockTestimonials: Testimonial[] = [
     name: "Seán Murphy",
     location: "Greenfield Developments, Dublin",
     role: "partner",
-    rating: 5,
   },
 ];

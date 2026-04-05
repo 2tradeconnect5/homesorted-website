@@ -211,7 +211,7 @@ export function AboutContent() {
           <ScrollReveal delay={0.1}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
-                variant="whatsapp"
+                variant="primary"
                 size="lg"
                 href={WHATSAPP_EMMA}
                 external

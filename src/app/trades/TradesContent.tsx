@@ -38,7 +38,7 @@ const caseySteps = [
   { step: 1, icon: MessageCircle, title: "Casey Sends You an Offer", description: "New job in your area matching your skills? Casey sends it straight to your WhatsApp with all the details." },
   { step: 2, icon: Users, title: "Accept and Arrange", description: "Accept the job, arrange a site visit if needed, and submit your quote — all through Casey or the Trade App." },
   { step: 3, icon: Star, title: "Win the Job", description: "The homeowner reviews up to 3 quotes and chooses. You're introduced directly via WhatsApp to get started." },
-  { step: 4, icon: Receipt, title: "Get Paid, Get Reviewed", description: "Complete the work, upload photos, and generate a professional invoice. The homeowner leaves a verified review." },
+  { step: 4, icon: Receipt, title: "Get Paid", description: "Complete the work, upload photos, and generate a professional invoice. The homeowner leaves a Reflection Note and can save you to their Home Team." },
 ];
 
 const faqs = [
@@ -46,7 +46,7 @@ const faqs = [
   { q: "What does it cost?", a: "It's free to join, create your profile, and appear in the directory. You only pay when you win work — a small platform fee on completed jobs. No subscription required to get started." },
   { q: "What is Know Your Trade (KYT)?", a: "KYT is our verification process. It includes identity verification via selfie, insurance documentation, and relevant regulatory credentials (RGI, Safe Electric, SEAI). Verified trades earn a trust badge on their profile." },
   { q: "What types of trades does HomeSorted support?", a: "Plumbers, electricians, painters, carpenters, tilers, landscapers, general builders, locksmiths, roofers, heating engineers, and more. If you're a skilled tradesperson in Ireland, there's a place for you." },
-  { q: "How does job matching work?", a: "When a homeowner posts a job, Emma identifies the category and location. Casey then offers the job to up to 3 matching trades based on availability, proximity, and rating. First to accept, first to quote." },
+  { q: "How does job matching work?", a: "When a homeowner posts a job, Emma identifies the category and location. Casey then offers the job to up to 3 matching trades based on availability, proximity, and verified status. First to accept, first to quote." },
   { q: "Can I manage my own clients too?", a: "Yes! The Trade Companion App includes an 'Own Clients' feature where you can track jobs for your existing customers alongside HomeSorted jobs." },
 ];
 
@@ -66,7 +66,8 @@ export function TradesContent() {
                   alt="Casey — Your Trade Business Partner"
                   width={80}
                   height={80}
-                  className="w-20 h-20 rounded-full object-cover border-4 border-navy/10"
+                  priority
+                  className="w-20 h-20 rounded-full object-cover border-4 border-navy/10 bg-navy/5"
                 />
               </div>
               <h1 className="text-4xl sm:text-5xl font-bold text-navy tracking-tight">
@@ -75,13 +76,13 @@ export function TradesContent() {
               <p className="mt-6 text-lg text-grey-text leading-relaxed">
                 Get matched to real jobs with real budgets. Now matching trades
                 across Greater Dublin. Manage your business with Casey, your AI
-                partner. Build your reputation with verified reviews and badges.
+                partner. Build your reputation with Proof of Work badges.
               </p>
               <p className="mt-3 text-sm text-grey-text/80">
                 Homeowners in Greater Dublin are already posting jobs. Get matched to work in your area.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-4">
-                <Button variant="whatsapp" size="lg" href={WHATSAPP_CASEY} external>
+                <Button variant="primary" size="lg" href={WHATSAPP_CASEY} external>
                   <MessageCircle size={20} />
                   Chat with Casey
                 </Button>
@@ -205,7 +206,7 @@ export function TradesContent() {
             <h2 className="text-2xl font-bold text-navy mb-8">Three Ways to Get Started</h2>
             <div className="grid sm:grid-cols-3 gap-6">
               {[
-                { icon: MessageCircle, title: "WhatsApp", description: "Message Casey directly", color: "bg-[#25D366]/10 text-[#25D366]" },
+                { icon: MessageCircle, title: "WhatsApp", description: "Message Casey directly", color: "bg-primary-bg text-primary" },
                 { icon: Smartphone, title: "Trade App", description: "Download and sign up", color: "bg-primary-bg text-primary" },
                 { icon: Globe, title: "This Website", description: "Contact us below", color: "bg-navy/5 text-navy" },
               ].map((channel) => (
@@ -252,7 +253,7 @@ export function TradesContent() {
             <p className="text-sm font-semibold text-navy mb-6">
               Limited to 40 founding trades. 18 spots remaining.
             </p>
-            <Button variant="whatsapp" size="lg" href={WHATSAPP_CASEY} external>
+            <Button variant="primary" size="lg" href={WHATSAPP_CASEY} external>
               <MessageCircle size={20} />
               Apply to Be a Founding Trade
             </Button>
