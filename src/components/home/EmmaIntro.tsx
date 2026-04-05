@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { MessageCircle, Sparkles, Shield, Clock } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { WHATSAPP_EMMA } from "@/lib/constants";
 
 const features = [
   { icon: Sparkles, text: "AI-powered job matching" },
@@ -21,9 +23,13 @@ export function EmmaIntro() {
             <div className="relative max-w-sm mx-auto md:mx-0">
               {/* Emma avatar */}
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">
-                  E
-                </div>
+                <Image
+                  src="/images/personas/emma-closeup.jpg"
+                  alt="Emma"
+                  width={48}
+                  height={48}
+                  className="w-12 h-12 rounded-full object-cover border-2 border-primary/20"
+                />
                 <div>
                   <p className="text-sm font-semibold text-navy">Emma</p>
                   <p className="text-xs text-grey-text">
@@ -36,15 +42,15 @@ export function EmmaIntro() {
               <div className="space-y-3">
                 {[
                   {
-                    text: "Hi! I'm Emma, your personal home concierge. What do you need help with today?",
+                    text: "Hi! I\u2019m Emma, your personal home concierge. What do you need help with today?",
                     delay: 0,
                   },
                   {
-                    text: "Just tell me what's going on — a photo helps too. I'll find the right trade for you.",
+                    text: "Just tell me what\u2019s going on \u2014 a photo helps too. I\u2019ll find the right trade for you.",
                     delay: 0.3,
                   },
                   {
-                    text: "We've found 3 verified plumbers near you. Here's the first quote...",
+                    text: "We\u2019ve found 3 verified plumbers near you. Here\u2019s the first quote...",
                     delay: 0.6,
                   },
                 ].map((msg, i) => (
@@ -114,7 +120,7 @@ export function EmmaIntro() {
               <Button
                 variant="whatsapp"
                 size="lg"
-                href="https://wa.me/353XXXXXXXXX"
+                href={WHATSAPP_EMMA}
                 external
               >
                 <MessageCircle size={20} />

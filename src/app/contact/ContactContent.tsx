@@ -8,6 +8,7 @@ import {
   MessageCircle,
   CheckCircle,
 } from "lucide-react";
+import { WHATSAPP_EMMA, WHATSAPP_CASEY } from "@/lib/constants";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card } from "@/components/ui/Card";
@@ -206,7 +207,7 @@ export function ContactContent() {
                   <Button
                     variant="whatsapp"
                     size="sm"
-                    href="https://wa.me/353000000000"
+                    href={WHATSAPP_CASEY}
                     external
                   >
                     <MessageCircle className="w-4 h-4" />
@@ -224,7 +225,7 @@ export function ContactContent() {
                   <Button
                     variant="whatsapp"
                     size="sm"
-                    href="https://wa.me/353000000000"
+                    href={WHATSAPP_EMMA}
                     external
                   >
                     <MessageCircle className="w-4 h-4" />

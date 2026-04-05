@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   Shield,
   Zap,
@@ -12,6 +13,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
+import { WHATSAPP_EMMA } from "@/lib/constants";
 
 const values = [
   {
@@ -95,17 +97,30 @@ export function AboutContent() {
       <section className="py-16 md:py-20 bg-page-bg">
         <div className="container mx-auto px-4">
           <ScrollReveal>
-            <SectionHeading
-              title="Meet Emma & Casey"
-              subtitle="Our AI personas, designed to feel human."
-            />
+            <div className="text-center mb-8">
+              <Image
+                src="/images/personas/emma-casey-together.jpg"
+                alt="Emma and Casey"
+                width={200}
+                height={120}
+                className="w-48 h-auto rounded-xl mx-auto mb-4 shadow-card"
+              />
+              <SectionHeading
+                title="Meet Emma & Casey"
+                subtitle="Our AI personas, designed to feel human."
+              />
+            </div>
           </ScrollReveal>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <ScrollReveal delay={0.1}>
               <Card className="p-8 h-full border-t-4 border-t-primary">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                  <MessageCircle className="w-6 h-6 text-primary" />
-                </div>
+                <Image
+                  src="/images/personas/emma-closeup.jpg"
+                  alt="Emma — Your Personal Home Concierge"
+                  width={96}
+                  height={96}
+                  className="w-24 h-24 rounded-full object-cover mb-4 border-4 border-primary/10"
+                />
                 <h3 className="text-xl font-bold text-navy mb-3">Emma</h3>
                 <p className="text-sm text-primary font-medium mb-3">
                   Your Personal Home Concierge
@@ -121,9 +136,13 @@ export function AboutContent() {
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <Card className="p-8 h-full border-t-4 border-t-navy">
-                <div className="w-12 h-12 bg-navy/10 rounded-full flex items-center justify-center mb-4">
-                  <MessageCircle className="w-6 h-6 text-navy" />
-                </div>
+                <Image
+                  src="/images/personas/casey-closeup.jpg"
+                  alt="Casey — Your Trade Business Partner"
+                  width={96}
+                  height={96}
+                  className="w-24 h-24 rounded-full object-cover mb-4 border-4 border-navy/10"
+                />
                 <h3 className="text-xl font-bold text-navy mb-3">Casey</h3>
                 <p className="text-sm text-navy font-medium mb-3">
                   Your Trade Business Partner
@@ -194,14 +213,14 @@ export function AboutContent() {
               <Button
                 variant="whatsapp"
                 size="lg"
-                href="https://wa.me/353000000000"
+                href={WHATSAPP_EMMA}
                 external
               >
                 <MessageCircle className="w-5 h-5" />
-                Chat on WhatsApp
+                Chat with Emma
               </Button>
-              <Button variant="outline" size="lg" href="/contact">
-                Contact Us
+              <Button variant="outline" size="lg" href="/trades">
+                Join as a Trade
               </Button>
             </div>
           </ScrollReveal>

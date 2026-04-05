@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, Clock, Calendar, User, MessageCircle } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
@@ -8,6 +9,7 @@ import { Button } from "@/components/ui/Button";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { formatDate } from "@/lib/utils";
+import { WHATSAPP_EMMA } from "@/lib/constants";
 import { BlogPost } from "@/types";
 
 interface BlogPostContentProps {
@@ -87,6 +89,13 @@ export function BlogPostContent({ post, relatedPosts }: BlogPostContentProps) {
         {/* CTA */}
         <ScrollReveal>
           <Card className="p-8 mt-12 text-center bg-primary-bg border-primary/20">
+            <Image
+              src="/images/personas/emma-closeup.jpg"
+              alt="Emma"
+              width={64}
+              height={64}
+              className="w-16 h-16 rounded-full object-cover mx-auto mb-4 border-4 border-primary/10"
+            />
             <h3 className="text-xl font-bold text-navy mb-2">
               Got a home maintenance question?
             </h3>
@@ -96,7 +105,7 @@ export function BlogPostContent({ post, relatedPosts }: BlogPostContentProps) {
             <Button
               variant="whatsapp"
               size="lg"
-              href="https://wa.me/353XXXXXXXXX"
+              href={WHATSAPP_EMMA}
               external
             >
               <MessageCircle size={18} />

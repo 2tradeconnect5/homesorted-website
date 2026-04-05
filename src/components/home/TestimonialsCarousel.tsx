@@ -8,6 +8,15 @@ import { StarRating } from "@/components/ui/StarRating";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
+const avatarColors = [
+  "bg-primary",
+  "bg-navy",
+  "bg-amber-500",
+  "bg-blue-500",
+  "bg-emerald-500",
+  "bg-rose-500",
+];
+
 export function TestimonialsCarousel() {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -29,6 +38,10 @@ export function TestimonialsCarousel() {
   }, [paused, next]);
 
   const testimonial = mockTestimonials[current];
+  const initials = testimonial.name
+    .split(" ")
+    .map((n) => n[0])
+    .join("");
 
   return (
     <section className="bg-page-bg py-20">
@@ -62,9 +75,19 @@ export function TestimonialsCarousel() {
                 rating={testimonial.rating}
                 className="justify-center mb-4"
               />
-              <p className="font-semibold text-navy">{testimonial.name}</p>
-              <p className="text-sm text-grey-text">{testimonial.location}</p>
-              <span className="inline-block mt-2 text-xs font-medium text-primary bg-primary-bg px-2.5 py-0.5 rounded-full capitalize">
+              {/* Avatar + name */}
+              <div className="flex items-center justify-center gap-3">
+                <div
+                  className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-sm ${avatarColors[current % avatarColors.length]}`}
+                >
+                  {initials}
+                </div>
+                <div className="text-left">
+                  <p className="font-semibold text-navy">{testimonial.name}</p>
+                  <p className="text-sm text-grey-text">{testimonial.location}</p>
+                </div>
+              </div>
+              <span className="inline-block mt-3 text-xs font-medium text-primary bg-primary-bg px-2.5 py-0.5 rounded-full capitalize">
                 {testimonial.role}
               </span>
             </motion.div>

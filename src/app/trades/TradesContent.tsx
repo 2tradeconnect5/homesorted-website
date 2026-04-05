@@ -14,6 +14,7 @@ import {
   Star,
   Receipt,
 } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/Button";
@@ -21,6 +22,8 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card } from "@/components/ui/Card";
 import { FinalCTA } from "@/components/home/FinalCTA";
+import { TradeAppPreview } from "@/components/trades/TradeAppPreview";
+import { WHATSAPP_CASEY, TRADE_APP_URL } from "@/lib/constants";
 
 const benefits = [
   { icon: Briefcase, title: "Real Jobs, Real Budgets", description: "No bidding wars. Homeowners post jobs, you get matched based on your skills, location, and availability." },
@@ -57,6 +60,15 @@ export function TradesContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
+              <div className="flex justify-center mb-6">
+                <Image
+                  src="/images/personas/casey-closeup.jpg"
+                  alt="Casey — Your Trade Business Partner"
+                  width={80}
+                  height={80}
+                  className="w-20 h-20 rounded-full object-cover border-4 border-navy/10"
+                />
+              </div>
               <h1 className="text-4xl sm:text-5xl font-bold text-navy tracking-tight">
                 Grow Your Trade <span className="text-primary">Business</span>
               </h1>
@@ -66,7 +78,7 @@ export function TradesContent() {
                 reviews and badges.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-4">
-                <Button variant="whatsapp" size="lg" href="https://wa.me/353XXXXXXXXX" external>
+                <Button variant="whatsapp" size="lg" href={WHATSAPP_CASEY} external>
                   <MessageCircle size={20} />
                   Chat with Casey
                 </Button>
@@ -106,7 +118,16 @@ export function TradesContent() {
       <section className="bg-white py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <SectionHeading title="How Casey Works for You" subtitle="From job offer to payment — Casey handles the admin" />
+            <div className="flex items-center justify-center gap-3 mb-2">
+              <Image
+                src="/images/personas/casey-closeup.jpg"
+                alt="Casey"
+                width={40}
+                height={40}
+                className="w-10 h-10 rounded-full object-cover"
+              />
+              <SectionHeading title="How Casey Works for You" subtitle="From job offer to payment — Casey handles the admin" />
+            </div>
           </ScrollReveal>
           <div className="space-y-8">
             {caseySteps.map((step, i) => (
@@ -153,12 +174,7 @@ export function TradesContent() {
               </div>
             </ScrollReveal>
             <ScrollReveal direction="right">
-              <div className="bg-navy-dark rounded-2xl p-8 min-h-[300px] flex items-center justify-center">
-                <div className="text-center">
-                  <Smartphone size={48} className="text-primary mx-auto mb-4" />
-                  <p className="text-white/60 text-sm">Trade Companion App Preview</p>
-                </div>
-              </div>
+              <TradeAppPreview />
             </ScrollReveal>
           </div>
         </div>
@@ -217,7 +233,13 @@ export function TradesContent() {
         </div>
       </section>
 
-      <FinalCTA />
+      <FinalCTA
+        primaryLabel="Chat with Casey"
+        primaryHref={WHATSAPP_CASEY}
+        secondaryLabel="Open the Trade App"
+        secondaryHref={TRADE_APP_URL}
+        secondaryExternal
+      />
     </>
   );
 }

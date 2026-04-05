@@ -12,7 +12,6 @@ import {
   BarChart3,
   MessageCircle,
   ArrowRight,
-  Monitor,
 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
@@ -20,6 +19,8 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card } from "@/components/ui/Card";
 import { FinalCTA } from "@/components/home/FinalCTA";
+import { DashboardPreview } from "@/components/partners/DashboardPreview";
+import { WHATSAPP_EMMA } from "@/lib/constants";
 
 const audiences = [
   {
@@ -102,7 +103,7 @@ export function PartnersContent() {
                   Book a Demo
                   <ArrowRight size={18} />
                 </Button>
-                <Button variant="outline" size="lg" href="https://wa.me/353XXXXXXXXX" external>
+                <Button variant="outline" size="lg" href={WHATSAPP_EMMA} external>
                   <MessageCircle size={20} />
                   Talk to Us
                 </Button>
@@ -186,12 +187,7 @@ export function PartnersContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <ScrollReveal direction="left">
-              <div className="bg-navy-dark rounded-2xl p-8 min-h-[300px] flex items-center justify-center">
-                <div className="text-center">
-                  <Monitor size={48} className="text-primary mx-auto mb-4" />
-                  <p className="text-white/60 text-sm">Partner Dashboard Preview</p>
-                </div>
-              </div>
+              <DashboardPreview />
             </ScrollReveal>
             <ScrollReveal direction="right">
               <SectionHeading title="How It Works for Partners" align="left" className="mb-8" />
@@ -213,7 +209,14 @@ export function PartnersContent() {
         </div>
       </section>
 
-      <FinalCTA />
+      <FinalCTA
+        primaryLabel="Book a Demo"
+        primaryHref="/contact"
+        primaryExternal={false}
+        secondaryLabel="Contact Our Team"
+        secondaryHref="/contact"
+        secondaryExternal={false}
+      />
     </>
   );
 }

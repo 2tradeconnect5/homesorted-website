@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { WHATSAPP_EMMA } from "@/lib/constants";
 
 export function WhatsAppCTA() {
   const [visible, setVisible] = useState(true);
@@ -24,7 +25,7 @@ export function WhatsAppCTA() {
     <AnimatePresence>
       {visible && (
         <motion.a
-          href="https://wa.me/353XXXXXXXXX"
+          href={WHATSAPP_EMMA}
           target="_blank"
           rel="noopener noreferrer"
           initial={{ scale: 0, opacity: 0 }}
@@ -35,7 +36,6 @@ export function WhatsAppCTA() {
           aria-label="Chat with Emma on WhatsApp"
         >
           <MessageCircle size={26} fill="white" strokeWidth={0} />
-          {/* Pulse ring */}
           <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20" />
         </motion.a>
       )}

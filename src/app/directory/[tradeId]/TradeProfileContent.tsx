@@ -23,6 +23,20 @@ import { TradeCard } from "@/components/directory/TradeCard";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { formatDate } from "@/lib/utils";
 import { Trade } from "@/types";
+import { WHATSAPP_EMMA } from "@/lib/constants";
+
+const categoryColors: Record<string, string> = {
+  Plumber: "bg-blue-500",
+  Electrician: "bg-amber-500",
+  "Painter & Decorator": "bg-rose-400",
+  Carpenter: "bg-orange-600",
+  Tiler: "bg-cyan-500",
+  Landscaper: "bg-emerald-500",
+  "General Builder": "bg-slate-600",
+  Locksmith: "bg-violet-500",
+  Roofer: "bg-red-600",
+  "Heating & Gas": "bg-orange-500",
+};
 
 const badgeIcons: Record<string, typeof Shield> = {
   Verified: Shield,
@@ -56,8 +70,8 @@ export function TradeProfileContent({ trade, relatedTrades }: TradeProfileConten
             <ScrollReveal>
               <Card className="p-8">
                 <div className="flex flex-col sm:flex-row items-start gap-6">
-                  <div className="shrink-0 w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/20 to-navy/10 flex items-center justify-center">
-                    <span className="text-2xl font-bold text-navy">
+                  <div className={`shrink-0 w-24 h-24 rounded-full flex items-center justify-center ${categoryColors[trade.category] || "bg-primary"}`}>
+                    <span className="text-3xl font-bold text-white">
                       {trade.name.split(" ").map((n) => n[0]).join("")}
                     </span>
                   </div>
@@ -178,7 +192,7 @@ export function TradeProfileContent({ trade, relatedTrades }: TradeProfileConten
                     variant="whatsapp"
                     size="lg"
                     className="w-full"
-                    href="https://wa.me/353XXXXXXXXX"
+                    href={WHATSAPP_EMMA}
                     external
                   >
                     <MessageCircle size={18} />

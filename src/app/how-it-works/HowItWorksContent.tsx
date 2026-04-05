@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { WHATSAPP_EMMA } from "@/lib/constants";
 import {
   MessageSquare,
   Search,
@@ -109,7 +110,7 @@ export function HowItWorksContent() {
           <div className="mt-12 text-center">
             <ScrollReveal>
               {activeTab === "homeowners" && (
-                <Button variant="whatsapp" size="lg" href="https://wa.me/353XXXXXXXXX" external>
+                <Button variant="whatsapp" size="lg" href={WHATSAPP_EMMA} external>
                   <MessageSquare size={20} />
                   Chat with Emma
                 </Button>

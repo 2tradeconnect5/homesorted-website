@@ -3,8 +3,25 @@
 import { MessageCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { WHATSAPP_EMMA, WHATSAPP_CASEY } from "@/lib/constants";
 
-export function FinalCTA() {
+interface FinalCTAProps {
+  primaryLabel?: string;
+  primaryHref?: string;
+  primaryExternal?: boolean;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+  secondaryExternal?: boolean;
+}
+
+export function FinalCTA({
+  primaryLabel = "Chat with Emma",
+  primaryHref = WHATSAPP_EMMA,
+  primaryExternal = true,
+  secondaryLabel = "Join as a Trade",
+  secondaryHref = "/trades",
+  secondaryExternal = false,
+}: FinalCTAProps) {
   return (
     <section className="bg-navy-dark py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -20,19 +37,20 @@ export function FinalCTA() {
             <Button
               variant="whatsapp"
               size="lg"
-              href="https://wa.me/353XXXXXXXXX"
-              external
+              href={primaryHref}
+              external={primaryExternal}
             >
               <MessageCircle size={20} />
-              Chat with Emma
+              {primaryLabel}
             </Button>
             <Button
               variant="ghost"
               size="lg"
               className="text-white border-2 border-white/20 hover:bg-white/10"
-              href="/trades"
+              href={secondaryHref}
+              external={secondaryExternal}
             >
-              Join as a Trade
+              {secondaryLabel}
               <ArrowRight size={18} />
             </Button>
           </div>

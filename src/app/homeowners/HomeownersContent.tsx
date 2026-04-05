@@ -21,6 +21,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card } from "@/components/ui/Card";
 import { FinalCTA } from "@/components/home/FinalCTA";
+import { WHATSAPP_EMMA } from "@/lib/constants";
 
 const benefits = [
   { icon: Download, title: "No Apps to Download", description: "Emma lives on WhatsApp — the app you already use every day. No signup forms, no new accounts." },
@@ -66,7 +67,7 @@ export function HomeownersContent() {
                 job gets done right.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-4">
-                <Button variant="whatsapp" size="lg" href="https://wa.me/353XXXXXXXXX" external>
+                <Button variant="whatsapp" size="lg" href={WHATSAPP_EMMA} external>
                   <MessageCircle size={20} />
                   Chat with Emma
                 </Button>
@@ -162,7 +163,13 @@ export function HomeownersContent() {
         </div>
       </section>
 
-      <FinalCTA />
+      <FinalCTA
+        primaryLabel="Chat with Emma"
+        primaryHref={WHATSAPP_EMMA}
+        secondaryLabel="How It Works"
+        secondaryHref="/how-it-works"
+        secondaryExternal={false}
+      />
     </>
   );
 }
