@@ -58,7 +58,7 @@ export function DirectoryContent() {
         <ScrollReveal>
           <SectionHeading
             title="Trade Directory"
-            subtitle="Browse verified tradespeople across Ireland"
+            subtitle="Showing verified trades in the Greater Dublin area"
           />
         </ScrollReveal>
 

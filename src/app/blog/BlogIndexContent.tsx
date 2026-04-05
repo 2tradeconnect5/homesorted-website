@@ -5,6 +5,7 @@ import { getAllPosts } from "@/lib/blog";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { BlogEmailCapture } from "@/components/home/EmailCapture";
 
 const categories = ["All", "Company News", "Tips & Guides", "Industry Insights"];
 
@@ -43,18 +44,27 @@ export function BlogIndexContent() {
           ))}
         </div>
 
-        {/* Posts */}
-        {filtered.length > 0 ? (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filtered.map((post) => (
-              <BlogCard key={post.slug} post={post} />
-            ))}
+        {/* Posts + Sidebar */}
+        <div className="grid lg:grid-cols-4 gap-8">
+          <div className="lg:col-span-3">
+            {filtered.length > 0 ? (
+              <div className="grid sm:grid-cols-2 gap-8">
+                {filtered.map((post) => (
+                  <BlogCard key={post.slug} post={post} />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-16">
+                <p className="text-grey-text">No posts in this category yet.</p>
+              </div>
+            )}
           </div>
-        ) : (
-          <div className="text-center py-16">
-            <p className="text-grey-text">No posts in this category yet.</p>
+          <div className="lg:col-span-1">
+            <div className="lg:sticky lg:top-24">
+              <BlogEmailCapture />
+            </div>
           </div>
-        )}
+        </div>
       </div>
     </section>
   );

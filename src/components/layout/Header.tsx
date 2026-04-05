@@ -92,7 +92,7 @@ export function Header() {
                 external
               >
                 <MessageCircle size={16} />
-                Get Started
+                Chat with Emma
               </Button>
             </div>
 

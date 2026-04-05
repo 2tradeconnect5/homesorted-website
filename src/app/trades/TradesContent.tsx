@@ -73,9 +73,12 @@ export function TradesContent() {
                 Grow Your Trade <span className="text-primary">Business</span>
               </h1>
               <p className="mt-6 text-lg text-grey-text leading-relaxed">
-                Get matched to real jobs with real budgets. Manage your business
-                with Casey, your AI partner. Build your reputation with verified
-                reviews and badges.
+                Get matched to real jobs with real budgets. Now matching trades
+                across Greater Dublin. Manage your business with Casey, your AI
+                partner. Build your reputation with verified reviews and badges.
+              </p>
+              <p className="mt-3 text-sm text-grey-text/80">
+                Homeowners in Greater Dublin are already posting jobs. Get matched to work in your area.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-4">
                 <Button variant="whatsapp" size="lg" href={WHATSAPP_CASEY} external>
@@ -89,6 +92,21 @@ export function TradesContent() {
               </div>
             </ScrollReveal>
           </div>
+        </div>
+      </section>
+
+      {/* Zero Commission */}
+      <section className="bg-navy py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
+            Zero Commission. You Keep Every Cent You Earn.
+          </h2>
+          <p className="text-white/70 mb-2">
+            No hidden fees. No cut per job. Just a simple monthly subscription starting at €24.99.
+          </p>
+          <p className="text-sm text-white/50">
+            Other platforms take 10–20% of every job. We take nothing.
+          </p>
         </div>
       </section>
 
@@ -203,6 +221,44 @@ export function TradesContent() {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* Founding Trades */}
+      <ScrollReveal>
+        <section className="bg-[#f4fbe7] py-20">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="flex justify-center mb-4">
+              <Award size={36} className="text-navy" />
+            </div>
+            <h2 className="text-3xl font-bold text-navy mb-4">
+              Become a Founding Trade
+            </h2>
+            <p className="text-grey-text leading-relaxed mb-8">
+              We&apos;re looking for 40 founding tradespeople to launch HomeSorted in Greater Dublin. Founding trades get exclusive benefits that won&apos;t be available later.
+            </p>
+            <ul className="text-left max-w-md mx-auto space-y-3 mb-8">
+              {[
+                "Lifetime Starter plan — free forever",
+                "Direct input on features — help shape the platform",
+                "Founding Trade badge on your profile",
+                "Priority support from the HomeSorted team",
+                "First access to new areas as we expand",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-grey-text">
+                  <Star size={18} className="text-primary mt-0.5 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="text-sm font-semibold text-navy mb-6">
+              Limited to 40 founding trades. 18 spots remaining.
+            </p>
+            <Button variant="whatsapp" size="lg" href={WHATSAPP_CASEY} external>
+              <MessageCircle size={20} />
+              Apply to Be a Founding Trade
+            </Button>
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* FAQ */}
       <section className="bg-page-bg py-20">

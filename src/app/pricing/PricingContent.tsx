@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Check, ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
+import { Check, ChevronDown, ChevronUp, MessageCircle, ArrowRight } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
+import { WHATSAPP_CASEY } from "@/lib/constants";
 
 const faqs = [
   {
@@ -14,37 +15,78 @@ const faqs = [
     a: "Yes, 100%. Homeowners never pay HomeSorted anything. You pay the trade directly for completed work, but our matching, communication, and support services are completely free.",
   },
   {
-    q: "What does the Starter plan include for trades?",
-    a: "The Starter plan gives you a profile in our directory, the ability to receive job matches from Casey, and basic analytics showing your profile views and job requests.",
+    q: "Does HomeSorted take a commission on jobs?",
+    a: "No. Zero commission, ever. Unlike other platforms that take 10\u201320% of every job, HomeSorted never takes a cut of your earnings. You keep 100% of what you earn.",
   },
   {
-    q: "Can I cancel my Pro subscription at any time?",
-    a: "Absolutely. Pro is billed monthly with no lock-in. Cancel any time from your dashboard or by messaging Casey on WhatsApp.",
+    q: "What happens after the 30-day trial?",
+    a: "After your free 30-day Professional trial, you can continue on Professional, upgrade to Premium, or downgrade to Starter. No credit card is required to start, and you\u2019re never locked in.",
   },
   {
-    q: "Are there any transaction fees on completed jobs?",
-    a: "No. HomeSorted does not charge commission or transaction fees on jobs. Homeowners pay trades directly. Our revenue comes from Pro subscriptions and partner plans.",
+    q: "Can I cancel my subscription at any time?",
+    a: "Absolutely. All plans are billed monthly with no lock-in. Cancel any time from your dashboard or by messaging Casey on WhatsApp.",
   },
   {
-    q: "What counts as a 'Partner' plan?",
-    a: "Partner plans are designed for property managers, landlords, and letting agents who manage multiple properties. Pricing is based on portfolio size and includes dedicated account support.",
+    q: "What counts as a \u2018job match\u2019?",
+    a: "A job match is when Casey sends you a new job offer that matches your skills, location, and availability. On Starter you receive up to 10 per month; Professional and Premium are unlimited.",
+  },
+  {
+    q: "What\u2019s included in the Partner plan?",
+    a: "Partner plans are designed for property developers, landlords, and local authorities who manage multiple properties. Pricing is based on portfolio size and includes the full dashboard, snag triage, trade assignment, and dedicated account support.",
   },
 ];
 
-const starterFeatures = [
-  "Create a verified profile",
-  "Appear in the directory",
-  "Get matched to jobs by Casey",
-  "Basic analytics dashboard",
-];
-
-const proFeatures = [
-  "Everything in Starter",
-  "Priority job matching",
-  "Advanced analytics and insights",
-  "Featured profile badge",
-  "Stored quote templates",
-  "Monthly business report",
+const tiers = [
+  {
+    name: "Starter",
+    price: "\u20AC24.99",
+    period: "/month",
+    description: "For trades getting started on the platform",
+    features: [
+      "Verified trade profile in directory",
+      "Up to 10 job matches per month",
+      "Basic analytics",
+      "Casey AI assistant (standard)",
+      "WhatsApp job notifications",
+    ],
+    cta: "Start Free Trial",
+    variant: "outline" as const,
+    highlighted: false,
+  },
+  {
+    name: "Professional",
+    price: "\u20AC39.99",
+    period: "/month",
+    description: "For trades ready to grow their business",
+    features: [
+      "Everything in Starter",
+      "Unlimited job matches",
+      "Priority matching in your area",
+      "Advanced business analytics",
+      "Quote templates",
+      "Featured profile badge",
+    ],
+    cta: "Start Free Trial",
+    variant: "primary" as const,
+    highlighted: true,
+  },
+  {
+    name: "Premium",
+    price: "\u20AC69.99",
+    period: "/month",
+    description: "For established trades who want maximum visibility",
+    features: [
+      "Everything in Professional",
+      "Top placement in search results",
+      "Dedicated account support",
+      "Multi-area coverage (2+ service zones)",
+      "Monthly performance report",
+      "Early access to new features",
+    ],
+    cta: "Start Free Trial",
+    variant: "outline" as const,
+    highlighted: false,
+  },
 ];
 
 export function PricingContent() {
@@ -60,7 +102,8 @@ export function PricingContent() {
               Simple, Transparent Pricing
             </h1>
             <p className="mt-4 text-lg text-grey-text max-w-2xl mx-auto">
-              No hidden fees, no surprises. Just clear pricing that makes sense.
+              No hidden fees, no commission, no surprises. Just clear pricing
+              that makes sense.
             </p>
           </ScrollReveal>
         </div>
@@ -72,7 +115,7 @@ export function PricingContent() {
           <ScrollReveal>
             <SectionHeading
               title="For Homeowners"
-              subtitle="HomeSorted is free for homeowners. Always."
+              subtitle="HomeSorted is free for homeowners \u2014 always."
             />
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
@@ -85,83 +128,96 @@ export function PricingContent() {
               </h3>
               <p className="text-grey-text">
                 Message Emma on WhatsApp, get matched with verified trades,
-                compare quotes, and get the job done — all at no cost to you.
-                You only pay the trade directly for completed work.
+                compare quotes, and get the job done \u2014 all at no cost to
+                you. You only pay the trade directly for completed work.
               </p>
             </Card>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* For Trades */}
+      {/* 30-day trial callout */}
+      <section className="py-0">
+        <div className="container mx-auto px-4">
+          <ScrollReveal>
+            <div className="max-w-3xl mx-auto bg-primary-bg border border-[#d6eeb3] rounded-xl p-6 text-center mb-8">
+              <h3 className="text-lg font-bold text-navy mb-1">
+                30-Day Professional Trial
+              </h3>
+              <p className="text-sm text-grey-text">
+                Every new trade starts with a free 30-day Professional trial. No
+                credit card required. Downgrade or cancel anytime.
+              </p>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* For Trades — 3 tier cards */}
       <section className="py-16 md:py-20 bg-page-bg">
         <div className="container mx-auto px-4">
           <ScrollReveal>
             <SectionHeading
               title="For Trades"
-              subtitle="Choose the plan that fits your business."
+              subtitle="Choose the plan that fits your business. Zero commission on every plan."
             />
           </ScrollReveal>
-          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-            {/* Starter */}
-            <ScrollReveal delay={0.1}>
-              <Card className="p-8 h-full flex flex-col">
-                <h3 className="text-xl font-bold text-navy">Starter</h3>
-                <div className="mt-4 mb-6">
-                  <span className="text-4xl font-bold text-navy">Free</span>
-                </div>
-                <ul className="space-y-3 flex-1">
-                  {starterFeatures.map((f) => (
-                    <li key={f} className="flex items-start gap-2">
-                      <Check className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                      <span className="text-grey-text text-sm">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button
-                  variant="primary"
-                  size="lg"
-                  href="/trades"
-                  className="mt-8 w-full"
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {tiers.map((tier, i) => (
+              <ScrollReveal key={tier.name} delay={i * 0.1}>
+                <Card
+                  className={`p-8 h-full flex flex-col relative ${
+                    tier.highlighted
+                      ? "border-2 border-primary shadow-elevated"
+                      : ""
+                  }`}
                 >
-                  Get Started
-                </Button>
-              </Card>
-            </ScrollReveal>
-
-            {/* Pro */}
-            <ScrollReveal delay={0.2}>
-              <Card className="p-8 h-full flex flex-col border-primary/40 relative">
-                <Badge
-                  variant="primary"
-                  className="absolute -top-3 left-1/2 -translate-x-1/2"
-                >
-                  Popular
-                </Badge>
-                <h3 className="text-xl font-bold text-navy">Pro</h3>
-                <div className="mt-4 mb-6">
-                  <span className="text-4xl font-bold text-navy">&euro;24.99</span>
-                  <span className="text-grey-text text-sm">/month</span>
-                </div>
-                <ul className="space-y-3 flex-1">
-                  {proFeatures.map((f) => (
-                    <li key={f} className="flex items-start gap-2">
-                      <Check className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                      <span className="text-grey-text text-sm">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button
-                  variant="secondary"
-                  size="lg"
-                  href="/trades"
-                  className="mt-8 w-full"
-                >
-                  Go Pro
-                </Button>
-              </Card>
-            </ScrollReveal>
+                  {tier.highlighted && (
+                    <Badge
+                      variant="primary"
+                      className="absolute -top-3 left-1/2 -translate-x-1/2"
+                    >
+                      Most Popular
+                    </Badge>
+                  )}
+                  <h3 className="text-xl font-bold text-navy">{tier.name}</h3>
+                  <p className="text-sm text-grey-text mt-1 mb-4">
+                    {tier.description}
+                  </p>
+                  <div className="mb-6">
+                    <span className="text-4xl font-bold text-navy">
+                      {tier.price}
+                    </span>
+                    <span className="text-grey-text text-sm">{tier.period}</span>
+                  </div>
+                  <ul className="space-y-3 flex-1">
+                    {tier.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2">
+                        <Check className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                        <span className="text-grey-text text-sm">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Button
+                    variant={tier.variant}
+                    size="lg"
+                    href="/trades"
+                    className="mt-8 w-full"
+                  >
+                    {tier.cta}
+                  </Button>
+                </Card>
+              </ScrollReveal>
+            ))}
           </div>
+
+          {/* Zero commission reminder */}
+          <ScrollReveal delay={0.3}>
+            <p className="text-center text-sm text-grey-text mt-8 max-w-xl mx-auto">
+              Unlike other platforms, HomeSorted never takes a cut of your jobs.
+              You keep 100% of what you earn.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -171,12 +227,13 @@ export function PricingContent() {
           <ScrollReveal>
             <SectionHeading
               title="For Partners"
-              subtitle="Custom pricing based on portfolio size. Ideal for property managers, landlords, and letting agents."
+              subtitle="Property partners \u2014 contact us for custom pricing based on portfolio size."
             />
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <Button variant="secondary" size="lg" href="/contact">
-              Book a Demo
+              Request a Demo
+              <ArrowRight className="w-4 h-4" />
             </Button>
           </ScrollReveal>
         </div>
@@ -186,10 +243,7 @@ export function PricingContent() {
       <section className="py-16 md:py-20 bg-page-bg">
         <div className="container mx-auto px-4">
           <ScrollReveal>
-            <SectionHeading
-              title="Frequently Asked Questions"
-              badge="FAQ"
-            />
+            <SectionHeading title="Frequently Asked Questions" badge="FAQ" />
           </ScrollReveal>
           <div className="max-w-2xl mx-auto space-y-3">
             {faqs.map((faq, i) => (

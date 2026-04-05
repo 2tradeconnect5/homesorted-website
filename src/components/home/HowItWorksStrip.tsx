@@ -8,7 +8,7 @@ const steps = [
     icon: MessageSquare,
     title: "Tell Emma",
     description:
-      "Describe your job to Emma on WhatsApp. Photos, voice notes — whatever's easiest.",
+      "Describe your job to Emma on WhatsApp \u2014 type it, send a photo, or just record a voice note. Emma understands all three.",
     step: 1,
   },
   {

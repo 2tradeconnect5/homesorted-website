@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { EmailCapture } from "@/components/home/EmailCapture";
 import {
   WHATSAPP_EMMA,
   SOCIAL_TWITTER,
@@ -15,6 +16,7 @@ const platformLinks = [
   { href: "/trades", label: "Trades" },
   { href: "/partners", label: "Partners" },
   { href: "/pricing", label: "Pricing" },
+  { href: "/how-we-verify", label: "How We Verify" },
 ];
 
 const resourceLinks = [
@@ -57,6 +59,19 @@ export function Footer() {
   return (
     <footer id="footer" className="bg-navy-dark text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {/* Email capture */}
+        <div className="mb-12 pb-12 border-b border-white/10">
+          <div className="max-w-md">
+            <h3 className="text-lg font-semibold text-white mb-1">
+              Get Launch Updates
+            </h3>
+            <p className="text-sm text-white/60 mb-4">
+              Be the first to know when HomeSorted launches in your area.
+            </p>
+            <EmailCapture />
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="space-y-4">
@@ -71,7 +86,7 @@ export function Footer() {
             </Link>
             <p className="text-sm text-white/60 leading-relaxed">
               Your home, sorted. Ireland&apos;s AI-powered home services
-              marketplace, built on WhatsApp.
+              marketplace. Serving Greater Dublin. Built on WhatsApp.
             </p>
             <Button
               variant="whatsapp"

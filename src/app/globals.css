@@ -4,12 +4,17 @@
   --color-primary: #8CC63F;
   --color-primary-dark: #7AB535;
   --color-primary-light: #A8D86A;
-  --color-primary-bg: #EEF8E0;
+  --color-primary-bg: #f4fbe7;
+  --color-badge-bg: #eef8e0;
+  --color-badge-text: #5a8a2a;
+  --color-badge-border: #d6eeb3;
+  --color-gradient-green: #6aa030;
   --color-navy: #2C4459;
-  --color-navy-light: #3A5A75;
+  --color-navy-light: #3a566e;
   --color-navy-dark: #1A2332;
   --color-page-bg: #F3F4F6;
-  --color-grey-text: #566573;
+  --color-dark-text: #1F2937;
+  --color-grey-text: #1F2937;
   --color-border: #E5E8E8;
   --color-error: #E74C3C;
   --color-warning: #F39C12;
@@ -30,7 +35,7 @@
 
 body {
   background: var(--color-page-bg);
-  color: var(--color-navy);
+  color: var(--color-dark-text);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

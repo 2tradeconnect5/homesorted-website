@@ -1,13 +1,20 @@
 "use client";
 
+import { MapPin } from "lucide-react";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
-const stats = [
+const stats: {
+  value?: number;
+  suffix?: string;
+  label: string;
+  isDecimal?: boolean;
+  isIcon?: boolean;
+}[] = [
   { value: 500, suffix: "+", label: "Verified Trades" },
-  { value: 2000, suffix: "+", label: "Jobs Completed" },
+  { value: 250, suffix: "+", label: "Jobs Completed Across Greater Dublin" },
   { value: 4.8, suffix: "", label: "Average Rating", isDecimal: true },
-  { value: 100, suffix: "%", label: "WhatsApp Native" },
+  { label: "Serving Greater Dublin", isIcon: true },
 ];
 
 export function TrustBar() {
@@ -19,15 +26,16 @@ export function TrustBar() {
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-white">
-                  {stat.isDecimal ? (
+                  {stat.isIcon ? (
+                    <MapPin size={36} className="mx-auto" />
+                  ) : stat.isDecimal ? (
                     <span>4.8</span>
                   ) : (
                     <AnimatedCounter
-                      target={stat.value}
+                      target={stat.value!}
                       suffix={stat.suffix}
                     />
                   )}
-                  {!stat.isDecimal ? "" : stat.suffix}
                 </div>
                 <p className="mt-2 text-sm text-white/80 font-medium">
                   {stat.label}

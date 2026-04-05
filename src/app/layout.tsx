@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | HomeSorted",
   },
   description:
-    "Find verified tradespeople in Ireland instantly. Message Emma on WhatsApp, get matched with trusted trades, and get the job done. No apps, no forms — just results.",
+    "Find verified tradespeople in Greater Dublin instantly. Message Emma on WhatsApp, get matched with trusted trades, and get the job done. No apps, no forms — just results.",
   keywords: [
     "home services Ireland",
     "find tradespeople Ireland",

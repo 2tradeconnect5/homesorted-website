@@ -12,6 +12,7 @@ interface ChatMessage {
   sender: "user" | "emma";
   text?: string;
   isPhoto?: boolean;
+  isVoiceNote?: boolean;
   time: string;
 }
 
@@ -19,7 +20,8 @@ const chatSequence: ChatMessage[] = [
   { id: 1, sender: "user", text: "Hi Emma, my kitchen tap is leaking badly \u{1F4A7}", time: "09:14" },
   { id: 2, sender: "emma", text: "No worries! I\u2019m on it \u{1F527} Can you send a quick photo so our plumbers know what they\u2019re dealing with?", time: "09:14" },
   { id: 3, sender: "user", isPhoto: true, time: "09:15" },
-  { id: 4, sender: "emma", text: "Great news \u2014 3 verified plumbers in your area are available. First quote incoming! \u26A1", time: "09:16" },
+  { id: 4, sender: "user", isVoiceNote: true, time: "09:15" },
+  { id: 5, sender: "emma", text: "Great news \u2014 3 verified plumbers in your area are available. First quote incoming! \u26A1", time: "09:16" },
 ];
 
 function TypingIndicator() {
@@ -46,7 +48,7 @@ export function HeroSection() {
   useEffect(() => {
     const timers: ReturnType<typeof setTimeout>[] = [];
 
-    // Message 1: user
+    // Message 1: user text
     timers.push(setTimeout(() => setVisibleMessages([1]), 800));
     // Typing before Emma reply
     timers.push(setTimeout(() => setShowTyping(true), 1600));
@@ -54,10 +56,12 @@ export function HeroSection() {
     timers.push(setTimeout(() => { setShowTyping(false); setVisibleMessages([1, 2]); }, 2800));
     // Message 3: user photo
     timers.push(setTimeout(() => setVisibleMessages([1, 2, 3]), 3600));
+    // Message 4: user voice note
+    timers.push(setTimeout(() => setVisibleMessages([1, 2, 3, 4]), 4200));
     // Typing before Emma reply
-    timers.push(setTimeout(() => setShowTyping(true), 4400));
-    // Message 4: Emma
-    timers.push(setTimeout(() => { setShowTyping(false); setVisibleMessages([1, 2, 3, 4]); }, 5600));
+    timers.push(setTimeout(() => setShowTyping(true), 5000));
+    // Message 5: Emma
+    timers.push(setTimeout(() => { setShowTyping(false); setVisibleMessages([1, 2, 3, 4, 5]); }, 6200));
 
     return () => timers.forEach(clearTimeout);
   }, []);
@@ -84,9 +88,10 @@ export function HeroSection() {
               transition={{ duration: 0.5, delay: 0.15 }}
               className="mt-6 text-lg text-grey-text leading-relaxed max-w-lg"
             >
-              Ireland&apos;s first AI-powered home services marketplace. Tell
-              Emma what you need on WhatsApp — she&apos;ll find verified trades,
-              get you quotes, and handle the rest.
+              Ireland&apos;s first AI-powered home services marketplace. Now
+              serving the Greater Dublin area. Tell Emma what you need on
+              WhatsApp — she&apos;ll find verified trades, get you quotes, and
+              handle the rest.
             </motion.p>
 
             <motion.div
@@ -175,7 +180,19 @@ export function HeroSection() {
                                 ? "bg-[#DCF8C6] rounded-tr-none"
                                 : "bg-white rounded-tl-none"
                             }`}>
-                              {msg.isPhoto ? (
+                              {msg.isVoiceNote ? (
+                                <div className="flex items-center gap-2 pr-8">
+                                  <div className="w-7 h-7 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+                                    <Mic size={14} className="text-primary" />
+                                  </div>
+                                  <div className="flex-1 flex items-center gap-1">
+                                    {[...Array(12)].map((_, j) => (
+                                      <div key={j} className="w-1 rounded-full bg-gray-400" style={{ height: `${6 + Math.sin(j * 0.8) * 6}px` }} />
+                                    ))}
+                                  </div>
+                                  <span className="text-[10px] text-gray-500 shrink-0">0:08</span>
+                                </div>
+                              ) : msg.isPhoto ? (
                                 <div className="w-36 h-28 bg-gray-200 rounded flex items-center justify-center">
                                   <Camera size={24} className="text-gray-400" />
                                 </div>

@@ -10,7 +10,7 @@ const audiences = [
     icon: Home,
     title: "Homeowners",
     description:
-      "Post a job in 60 seconds via WhatsApp. No app downloads, no forms, no chasing quotes. Emma handles everything.",
+      "Post a job in 60 seconds via WhatsApp. Build your Home Team of trusted trades and get seasonal reminders from HomeInsight. Emma handles everything.",
     href: "/homeowners",
     color: "text-primary",
     bg: "bg-primary-bg",

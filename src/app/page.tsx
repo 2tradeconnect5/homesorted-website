@@ -1,5 +1,6 @@
 import { HeroSection } from "@/components/home/HeroSection";
 import { HowItWorksStrip } from "@/components/home/HowItWorksStrip";
+import { EmergencyMode } from "@/components/home/EmergencyMode";
 import { AudienceCards } from "@/components/home/AudienceCards";
 import { TrustBar } from "@/components/home/TrustBar";
 import { EmmaIntro } from "@/components/home/EmmaIntro";
@@ -11,6 +12,7 @@ export default function HomePage() {
     <>
       <HeroSection />
       <HowItWorksStrip />
+      <EmergencyMode />
       <AudienceCards />
       <TrustBar />
       <EmmaIntro />
