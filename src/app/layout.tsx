@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { WhatsAppCTA } from "@/components/layout/WhatsAppCTA";
+import { SiteChrome } from "@/components/layout/SiteChrome";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -62,10 +60,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} h-full`}>
       <body className="font-sans antialiased min-h-full flex flex-col">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <WhatsAppCTA />
+        <SiteChrome>{children}</SiteChrome>
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
