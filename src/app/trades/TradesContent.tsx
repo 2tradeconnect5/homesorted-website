@@ -34,7 +34,7 @@ const benefits = [
   { icon: Briefcase, title: "Real Jobs, Real Budgets", description: "No bidding wars. Homeowners post jobs, you get matched based on your skills, location, and availability." },
   { icon: Bot, title: "Casey, Your AI Partner", description: "Casey sends you job offers, reminds you about deadlines, tracks your earnings, and helps you write quotes." },
   { icon: Smartphone, title: "Trade Companion App", description: "Manage everything in one place \u2014 jobs, quotes, invoices, reviews, and your business analytics." },
-  { icon: Globe, title: "Public Trade Profile", description: "Your own page in the HomeSorted directory. Homeowners can find you, read your reviews, and request quotes." },
+  { icon: Globe, title: "Public Trade Profile", description: "Your own page in the HomeSorted directory. Homeowners can find you, see your verified work history, and request quotes." },
   { icon: Award, title: "Proof of Work Badges", description: "Build your reputation with verified past jobs. Earn your Verified badge and stand out from the crowd." },
   { icon: Clock, title: "Flexible Scheduling", description: "Set your working hours, holiday mode, service radius, and capacity. Work on your terms." },
 ];
@@ -117,7 +117,7 @@ export function TradesContent() {
             Real Jobs. Fair Pricing. No Lead Fees.
           </h2>
           <p className="text-white/70 mb-2">
-            You only pay a simple monthly subscription starting at &euro;24.99. No per-job cuts.
+            Starting at &euro;24.99/month (founding trades: 6 months free).
           </p>
         </div>
       </section>

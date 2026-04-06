@@ -16,7 +16,7 @@ export const mockTrades: Trade[] = [
     profileImage: "",
     yearsExperience: 15,
     memberSince: "2025-03-10",
-    responseTime: "Under 1 hour",
+    responseTime: "Under 30 minutes",
     reviews: [
       {
         id: "rev-001-1",
@@ -63,7 +63,7 @@ export const mockTrades: Trade[] = [
     profileImage: "",
     yearsExperience: 22,
     memberSince: "2025-01-15",
-    responseTime: "Under 1 hour",
+    responseTime: "Under 30 minutes",
     reviews: [
       {
         id: "rev-002-1",
@@ -117,7 +117,7 @@ export const mockTrades: Trade[] = [
     profileImage: "",
     yearsExperience: 12,
     memberSince: "2025-06-20",
-    responseTime: "Under 2 hours",
+    responseTime: "Under 30 minutes",
     reviews: [
       {
         id: "rev-003-1",
@@ -164,7 +164,7 @@ export const mockTrades: Trade[] = [
     profileImage: "",
     yearsExperience: 18,
     memberSince: "2025-02-28",
-    responseTime: "Same day",
+    responseTime: "Under 30 minutes",
     reviews: [
       {
         id: "rev-004-1",
@@ -218,7 +218,7 @@ export const mockTrades: Trade[] = [
     profileImage: "",
     yearsExperience: 9,
     memberSince: "2025-05-12",
-    responseTime: "Under 2 hours",
+    responseTime: "Under 30 minutes",
     reviews: [
       {
         id: "rev-005-1",
@@ -265,7 +265,7 @@ export const mockTrades: Trade[] = [
     profileImage: "",
     yearsExperience: 7,
     memberSince: "2025-04-05",
-    responseTime: "Under 1 hour",
+    responseTime: "Under 30 minutes",
     reviews: [
       {
         id: "rev-006-1",
@@ -305,7 +305,7 @@ export const mockTrades: Trade[] = [
     profileImage: "",
     yearsExperience: 25,
     memberSince: "2025-01-08",
-    responseTime: "Same day",
+    responseTime: "Under 30 minutes",
     reviews: [
       {
         id: "rev-007-1",
@@ -359,7 +359,7 @@ export const mockTrades: Trade[] = [
     profileImage: "",
     yearsExperience: 10,
     memberSince: "2025-02-14",
-    responseTime: "Under 1 hour",
+    responseTime: "Under 30 minutes",
     reviews: [
       {
         id: "rev-008-1",
@@ -406,7 +406,7 @@ export const mockTrades: Trade[] = [
     profileImage: "",
     yearsExperience: 14,
     memberSince: "2025-03-22",
-    responseTime: "Under 2 hours",
+    responseTime: "Under 30 minutes",
     reviews: [
       {
         id: "rev-009-1",
@@ -453,7 +453,7 @@ export const mockTrades: Trade[] = [
     profileImage: "",
     yearsExperience: 5,
     memberSince: "2025-08-01",
-    responseTime: "Same day",
+    responseTime: "Under 30 minutes",
     reviews: [
       {
         id: "rev-010-1",
@@ -500,7 +500,7 @@ export const mockTrades: Trade[] = [
     profileImage: "",
     yearsExperience: 21,
     memberSince: "2025-01-20",
-    responseTime: "Under 1 hour",
+    responseTime: "Under 30 minutes",
     reviews: [
       {
         id: "rev-011-1",
@@ -554,7 +554,7 @@ export const mockTrades: Trade[] = [
     profileImage: "",
     yearsExperience: 2,
     memberSince: "2026-01-10",
-    responseTime: "Under 1 hour",
+    responseTime: "Under 30 minutes",
     reviews: [
       {
         id: "rev-012-1",

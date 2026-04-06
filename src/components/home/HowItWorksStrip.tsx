@@ -7,6 +7,7 @@ import {
   Users,
   FileText,
 } from "lucide-react";
+import Link from "next/link";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const steps = [
@@ -21,14 +22,15 @@ const steps = [
     icon: Shield,
     title: "Get matched with verified trades",
     description:
-      "KYT identity-checked, POW work-proven. Not random listings.",
+      "Every trade is identity-verified and has proven past work. Not random listings.",
+    link: "/how-we-verify",
     step: 2,
   },
   {
     icon: ShieldCheck,
     title: "Your work is protected",
     description:
-      "Snag Flow: if something goes wrong, 3-tier resolution (minor snag, major issue, escalation).",
+      "If something goes wrong, we have your back. A 3-step resolution process from quick fixes to full escalation \u2014 you\u2019re never left with unfinished work.",
     step: 3,
   },
   {
@@ -57,11 +59,11 @@ export function HowItWorksStrip() {
           </h2>
         </ScrollReveal>
 
-        {/* Desktop: horizontal flow */}
-        <div className="hidden md:grid md:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-6">
           {steps.map((step, i) => (
             <ScrollReveal key={step.step} delay={i * 0.1}>
-              <div className="text-center">
+              {/* Desktop */}
+              <div className="hidden md:block text-center">
                 <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white text-sm font-bold mb-4">
                   {step.step}
                 </div>
@@ -74,16 +76,14 @@ export function HowItWorksStrip() {
                 <p className="text-sm text-grey-text leading-relaxed">
                   {step.description}
                 </p>
+                {"link" in step && step.link && (
+                  <Link href={step.link} className="text-sm text-primary font-medium hover:underline mt-2 inline-block">
+                    Learn about our verification &rarr;
+                  </Link>
+                )}
               </div>
-            </ScrollReveal>
-          ))}
-        </div>
-
-        {/* Mobile: vertical timeline */}
-        <div className="md:hidden space-y-8">
-          {steps.map((step, i) => (
-            <ScrollReveal key={step.step} delay={i * 0.1}>
-              <div className="flex gap-5 items-start">
+              {/* Mobile */}
+              <div className="md:hidden flex gap-5 items-start">
                 <div className="shrink-0 flex flex-col items-center">
                   <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold">
                     {step.step}
@@ -102,6 +102,11 @@ export function HowItWorksStrip() {
                   <p className="text-sm text-grey-text leading-relaxed">
                     {step.description}
                   </p>
+                  {"link" in step && step.link && (
+                    <Link href={step.link} className="text-sm text-primary font-medium hover:underline mt-1 inline-block">
+                      Learn about our verification &rarr;
+                    </Link>
+                  )}
                 </div>
               </div>
             </ScrollReveal>

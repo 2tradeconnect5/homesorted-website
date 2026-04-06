@@ -12,15 +12,15 @@ import { WHATSAPP_CASEY } from "@/lib/constants";
 const faqs = [
   {
     q: "Is HomeSorted really free for homeowners?",
-    a: "Yes, 100%. Homeowners never pay HomeSorted anything. You pay the trade directly for completed work, but our matching, communication, and support services are completely free.",
+    a: "Posting jobs and getting matched is completely free. We also offer HomeInsight Pro (\u20ac4.99/month) for proactive home management features like seasonal reminders and maintenance alerts.",
   },
   {
     q: "Does HomeSorted take a commission on jobs?",
-    a: "No. Zero commission, ever. Unlike other platforms that take 10\u201320% of every job, HomeSorted never takes a cut of your earnings. You keep 100% of what you earn.",
+    a: "No. Trades keep 100% of what they earn. Unlike other platforms that take 10\u201320% of every job, HomeSorted uses a simple subscription model instead.",
   },
   {
-    q: "What happens after the 30-day trial?",
-    a: "After your free 30-day Professional trial, you can continue on Professional, upgrade to Premium, or downgrade to Starter. No credit card is required to start, and you\u2019re never locked in.",
+    q: "What happens after the trial period?",
+    a: "After your trial ends, you can continue on Professional, upgrade to Premium, or downgrade to Starter. No credit card is required to start, and you\u2019re never locked in.",
   },
   {
     q: "Can I cancel my subscription at any time?",
@@ -61,7 +61,7 @@ const tiers = [
     features: [
       "Everything in Starter",
       "Unlimited job matches",
-      "Priority matching in your area",
+      "Detailed demand insights for your area",
       "Advanced business analytics",
       "Quote templates",
       "Featured profile badge",
@@ -77,7 +77,7 @@ const tiers = [
     description: "For established trades who want maximum visibility",
     features: [
       "Everything in Professional",
-      "Top placement in search results",
+      "Multi-area analytics dashboard",
       "Dedicated account support",
       "Multi-area coverage (2+ service zones)",
       "Monthly performance report",
@@ -115,7 +115,7 @@ export function PricingContent() {
           <ScrollReveal>
             <SectionHeading
               title="For Homeowners"
-              subtitle="HomeSorted is free for homeowners \u2014 always."
+              subtitle="Post jobs, get matched with verified trades, and manage your home \u2014 all free. Optional HomeInsight Pro available for \u20ac4.99/month."
             />
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
@@ -124,7 +124,7 @@ export function PricingContent() {
                 <Check className="w-8 h-8 text-primary" />
               </div>
               <h3 className="text-xl font-bold text-navy mb-2">
-                Free Forever
+                Free to Use
               </h3>
               <p className="text-grey-text">
                 Message Emma on WhatsApp, get matched with verified trades,
@@ -136,17 +136,24 @@ export function PricingContent() {
         </div>
       </section>
 
-      {/* 30-day trial callout */}
+      {/* Founding trades + trial callout */}
       <section className="py-0">
         <div className="container mx-auto px-4">
           <ScrollReveal>
-            <div className="max-w-3xl mx-auto bg-primary-bg border border-[#d6eeb3] rounded-xl p-6 text-center mb-8">
+            <div className="max-w-3xl mx-auto bg-primary-bg border border-[#d6eeb3] rounded-xl p-6 text-center mb-4">
               <h3 className="text-lg font-bold text-navy mb-1">
-                30-Day Professional Trial
+                \ud83d\ude80 Founding trades: 6 months free on Professional
               </h3>
               <p className="text-sm text-grey-text">
-                Every new trade starts with a free 30-day Professional trial. No
-                credit card required. Downgrade or cancel anytime.
+                First 50 founding trades in Greater Dublin get 6 months free on the Professional plan.{" "}
+                <a href="/trades" className="text-primary font-medium hover:underline">See /trades for details &rarr;</a>
+              </p>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={0.1}>
+            <div className="max-w-3xl mx-auto bg-white border border-border rounded-xl p-4 text-center mb-8">
+              <p className="text-sm text-grey-text">
+                6 months free for founding trades, 30-day trial for all others. No credit card required.
               </p>
             </div>
           </ScrollReveal>
@@ -159,7 +166,7 @@ export function PricingContent() {
           <ScrollReveal>
             <SectionHeading
               title="For Trades"
-              subtitle="Choose the plan that fits your business. Zero commission on every plan."
+              subtitle="Choose the plan that fits your business. You keep 100% of your job earnings."
             />
           </ScrollReveal>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -211,11 +218,9 @@ export function PricingContent() {
             ))}
           </div>
 
-          {/* Zero commission reminder */}
           <ScrollReveal delay={0.3}>
             <p className="text-center text-sm text-grey-text mt-8 max-w-xl mx-auto">
-              Unlike other platforms, HomeSorted never takes a cut of your jobs.
-              You keep 100% of what you earn.
+              Simple subscription pricing. You keep 100% of what you earn on every job.
             </p>
           </ScrollReveal>
         </div>

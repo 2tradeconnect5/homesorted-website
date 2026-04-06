@@ -32,10 +32,11 @@ const tabs = [
 
 const flows: Record<string, { icon: typeof Home; title: string; description: string }[]> = {
   homeowners: [
-    { icon: MessageSquare, title: "Message Emma on WhatsApp", description: "Describe your job in plain English. Send a photo or voice note if it helps — Emma understands all formats." },
-    { icon: Search, title: "Emma Finds Verified Trades", description: "Emma identifies the right category, searches verified trades near you, and invites up to 3 to quote. This usually takes minutes." },
-    { icon: FileText, title: "Review and Choose", description: "Compare quotes with clear pricing and timelines. Ask follow-up questions through Emma. Choose the trade that fits." },
-    { icon: CheckCircle, title: "Job Done", description: "Your trade completes the work. Confirm it's all good, leave a Reflection Note, and save them to your Home Team for next time." },
+    { icon: MessageSquare, title: "Tell Emma what you need", description: "Describe your job on WhatsApp. Voice notes, photos, or text \u2014 Emma understands all three." },
+    { icon: Search, title: "Get matched with verified trades", description: "Every trade is identity-verified and has proven past work. Emma finds up to 3 matching trades near you." },
+    { icon: CheckCircle, title: "Your work is protected", description: "If something goes wrong, we have your back. A 3-step resolution process from quick fixes to full escalation." },
+    { icon: Home, title: "Your Home Team remembers you", description: "Verified trades who know your home. Save favourites and get consistent quality every time." },
+    { icon: FileText, title: "Emma keeps your home running", description: "Receipts stored, warranties tracked. You\u2019ll never lose a document again." },
   ],
   trades: [
     { icon: Briefcase, title: "Receive Job Offers via Casey", description: "Casey sends you matching jobs on WhatsApp with all the details — category, location, budget. Accept or decline in one tap." },

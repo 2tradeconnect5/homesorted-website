@@ -10,8 +10,8 @@ const stats: {
   label: string;
   isIcon?: boolean;
 }[] = [
-  { value: 500, suffix: "+", label: "Verified Trades" },
-  { value: 250, suffix: "+", label: "Jobs Completed Across Greater Dublin" },
+  { value: 50, suffix: "+", label: "Verified Trades" },
+  { value: 200, suffix: "+", label: "Jobs Completed Across Greater Dublin" },
   { label: "Serving Greater Dublin", isIcon: true },
 ];
 

@@ -4,7 +4,7 @@ import { PricingContent } from "./PricingContent";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Simple, transparent pricing for trades and partners on HomeSorted. Free for homeowners, always.",
+    "Simple, transparent pricing for trades and partners on HomeSorted. Free to use for homeowners.",
 };
 
 export default function PricingPage() {

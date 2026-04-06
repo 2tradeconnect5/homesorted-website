@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/Button";
 import { EmailCapture } from "@/components/home/EmailCapture";
 import {
   WHATSAPP_EMMA,
+  TRADE_APP_URL,
+  PARTNER_DASHBOARD_URL,
   SOCIAL_TWITTER,
   SOCIAL_LINKEDIN,
   SOCIAL_INSTAGRAM,
@@ -24,6 +26,11 @@ const resourceLinks = [
   { href: "/directory", label: "Trade Directory" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
+];
+
+const appLinks = [
+  { href: TRADE_APP_URL, label: "Trade App", external: true },
+  { href: PARTNER_DASHBOARD_URL, label: "Partner Portal", external: true },
 ];
 
 const legalLinks = [
@@ -72,7 +79,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="inline-block">
@@ -132,6 +139,27 @@ export function Footer() {
                   >
                     {link.label}
                   </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Apps */}
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/40 mb-4">
+              Apps
+            </h3>
+            <ul className="space-y-3">
+              {appLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-white/70 hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </a>
                 </li>
               ))}
             </ul>

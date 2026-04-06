@@ -53,6 +53,13 @@ const verificationSteps = [
     description:
       "Trade-specific credentials verified \u2014 RGI for gas, RECI for electrical, Safe Electric, SEAI for energy, and more.",
   },
+  {
+    step: 6,
+    icon: CheckCircle,
+    title: "Proof of Work",
+    description:
+      "Trades must have 2 verified past jobs confirmed by real homeowners before they\u2019re fully activated.",
+  },
 ];
 
 export function HowWeVerifyContent() {
@@ -71,7 +78,7 @@ export function HowWeVerifyContent() {
               </h1>
               <p className="mt-6 text-lg text-grey-text leading-relaxed">
                 Trust isn&apos;t optional. Every tradesperson on HomeSorted goes
-                through our 5-step identity and credentials check before they
+                through our 6-step identity and credentials check before they
                 can accept a single job.
               </p>
             </ScrollReveal>
@@ -84,7 +91,7 @@ export function HowWeVerifyContent() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <SectionHeading
-              title="The 5-Step Verification Process"
+              title="The 6-Step Verification Process"
               subtitle="Our Know Your Trade (KYT) process covers identity, insurance, and credentials"
             />
           </ScrollReveal>
@@ -188,7 +195,7 @@ export function HowWeVerifyContent() {
               Find Verified Trades Near You
             </h2>
             <p className="text-grey-text mb-8">
-              Every trade you see on HomeSorted has passed our 5-step
+              Every trade you see on HomeSorted has passed our 6-step
               verification. Message Emma to get matched with trusted
               tradespeople in your area.
             </p>

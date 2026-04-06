@@ -39,15 +39,16 @@ const benefits = [
 ];
 
 const steps = [
-  { step: 1, icon: Smartphone, title: "Message Emma", description: "Open WhatsApp and tell Emma what you need. Type a message, snap a photo, or just hit record and describe it in your own words. Emma's AI understands voice notes just like text." },
-  { step: 2, icon: Search, title: "Emma Finds Trades", description: "Emma searches verified trades in your area and invites up to 3 to quote on your job." },
-  { step: 3, icon: Star, title: "Compare Quotes", description: "Review quotes with clear pricing and timelines. Ask questions through Emma if you need to." },
-  { step: 4, icon: CheckCircle, title: "Job Done", description: "Your chosen trade completes the work. Leave a Reflection Note, and save them to your Home Team." },
+  { step: 1, icon: Smartphone, title: "Tell Emma what you need", description: "Open WhatsApp and describe your job. Type a message, snap a photo, or record a voice note \u2014 Emma understands all three." },
+  { step: 2, icon: Shield, title: "Get matched with verified trades", description: "Every trade is identity-verified and has proven past work. Emma finds up to 3 matching trades near you." },
+  { step: 3, icon: CheckCircle, title: "Your work is protected", description: "If something goes wrong, we have your back. A 3-step resolution process from quick fixes to full escalation." },
+  { step: 4, icon: Users, title: "Your Home Team remembers you", description: "Verified trades who know your home. Save favourites and get consistent quality every time." },
+  { step: 5, icon: Search, title: "Emma keeps your home running", description: "Receipts stored, warranties tracked. You\u2019ll never lose a document again." },
 ];
 
 const faqs = [
   { q: "How does HomeSorted work?", a: "Just message Emma on WhatsApp and describe your job. She'll find verified trades in your area, get you quotes, and help you choose the right tradesperson. It's that simple." },
-  { q: "Is HomeSorted free for homeowners?", a: "Yes, completely free. Homeowners never pay a fee to use HomeSorted. You only pay the trade directly for the work they do." },
+  { q: "Is HomeSorted free for homeowners?", a: "Posting jobs and getting matched is completely free. We also offer HomeInsight Pro (\u20ac4.99/month) for proactive home management features like seasonal reminders and maintenance alerts." },
   { q: "How are trades verified?", a: "Every trade goes through our Know Your Trade (KYT) process — identity verification, insurance checks, and relevant regulatory credentials (RGI for gas, Safe Electric for electrical, SEAI for energy). They also build a Proof of Work portfolio with verified past jobs." },
   { q: "What if I'm not happy with the work?", a: "Emma will guide you through our resolution process. For minor issues, we'll arrange a fix with the trade. For major concerns, our team investigates within 48 hours. Your satisfaction matters." },
   { q: "What's HomeInsight?", a: "HomeInsight is your home's profile on HomeSorted. It tracks your service history, sends seasonal maintenance reminders, and helps you stay on top of your home's needs — like a MOT for your house." },
@@ -88,9 +89,9 @@ export function HomeownersContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>
             <p className="text-grey-text text-base">
-              Homeowners in your neighbourhood are already using HomeSorted.{" "}
+              Verified trades in your neighbourhood are ready and waiting.{" "}
               <Link href="/directory" className="text-primary font-medium hover:underline">
-                See verified trades near you &rarr;
+                See who&apos;s near you &rarr;
               </Link>
             </p>
           </ScrollReveal>
@@ -230,7 +231,7 @@ export function HomeownersContent() {
       <section className="bg-white py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <SectionHeading title="How Emma Works" subtitle="From first message to job complete — here's what to expect" />
+            <SectionHeading title="How It Works" subtitle="From first message to ongoing home management — here's the full journey" />
           </ScrollReveal>
           <div className="space-y-8">
             {steps.map((step, i) => (
