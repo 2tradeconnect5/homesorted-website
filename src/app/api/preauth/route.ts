@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "node:crypto";
 
+export const runtime = "nodejs";
+
 function verifyJWT(
   token: string,
   secret: string,
