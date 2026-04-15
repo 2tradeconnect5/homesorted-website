@@ -8,6 +8,7 @@ export function middleware(request: NextRequest) {
   if (
     pathname === "/gate" ||
     pathname.startsWith("/api/gate") ||
+    pathname.startsWith("/api/preauth") ||
     pathname.startsWith("/_next") ||
     pathname.startsWith("/images") ||
     pathname.startsWith("/favicon") ||
