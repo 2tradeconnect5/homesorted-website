@@ -55,6 +55,28 @@ export async function GET(request: NextRequest) {
 
   const payload = verifyJWT(token, secret, "website");
   if (!payload) {
+    // Debug: try to decode token to find what failed
+    try {
+      const parts = token.split(".");
+      const decoded = JSON.parse(Buffer.from(parts[1], "base64url").toString());
+      const expectedSig = crypto
+        .createHmac("sha256", secret)
+        .update(`${parts[0]}.${parts[1]}`)
+        .digest("base64url");
+      console.error("preauth debug:", {
+        tokenSigLength: parts[2]?.length,
+        expectedSigLength: expectedSig.length,
+        sigMatch: parts[2] === expectedSig,
+        aud: decoded.aud,
+        iss: decoded.iss,
+        exp: decoded.exp,
+        now: Math.floor(Date.now() / 1000),
+        expired: decoded.exp < Math.floor(Date.now() / 1000),
+        secretLength: secret.length,
+      });
+    } catch (e) {
+      console.error("preauth debug decode error:", e);
+    }
     return new NextResponse("Invalid or expired token", { status: 403 });
   }
 
